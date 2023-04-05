@@ -9,6 +9,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HomeComponent } from './components/home/home.component';
 import { AddUserComponent } from './components/user-module/add-user/add-user.component';
 import { UserListComponent } from './components/user-module/user-list/user-list.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { UserListComponent } from './components/user-module/user-list/user-list.
     NavBarComponent,
     HomeComponent,
     AddUserComponent,
-    UserListComponent
+    UserListComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
