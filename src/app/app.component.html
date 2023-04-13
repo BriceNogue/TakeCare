@@ -1,5 +1,121 @@
-<app-splash-screen></app-splash-screen>
-<div class="main-app-container">
-  <app-nav-bar></app-nav-bar>
-  <router-outlet></router-outlet>
-</div>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="over" [(opened)]="opened">
+    <div class="user-info">
+      <div class="user-profil">
+        <img src="../assets/imgs/svg/Authentication-rafiki.svg" alt="">
+      </div>
+      <div class="user-name">
+        <h1>Alpha</h1>
+      </div>
+    </div>
+    <div class="hr">
+      <hr>
+    </div>
+    <ul class="nav-links">
+      <li class="nav-link" routerLink="dashboard">
+        <div>
+          <mat-icon>dashboard</mat-icon>
+        </div>
+        <div>
+          <span class="sn-span">Dashboard</span>
+        </div>
+      </li>
+      <li class="nav-link" routerLink="patients">
+        <div>
+          <mat-icon>groups</mat-icon>
+        </div>
+        <div>
+          <span class="sn-span">Patients</span>
+        </div>
+      </li>
+      <li class="nav-link" routerLink="consultations">
+        <div>
+          <mat-icon>volunteer_activism</mat-icon>
+        </div>
+        <div>
+          <span class="sn-span">Consultations</span>
+        </div>
+      </li>
+      <li class="nav-link" routerLink="prescriptions">
+        <div>
+          <mat-icon>medication</mat-icon>
+        </div>
+        <div>
+          <span class="sn-span">Prescriptions</span>
+        </div>
+      </li>
+      <li class="nav-link" routerLink="appointments">
+        <div>
+          <mat-icon>free_cancellation</mat-icon>
+        </div>
+        <div>
+          <span class="sn-span">Appointments</span>
+        </div>
+      </li>
+      <li class="nav-link" routerLink="payments">
+        <div>
+          <mat-icon>paid</mat-icon>
+        </div>
+        <div>
+          <span class="sn-span">Payments</span>
+        </div>
+      </li>
+      <li class="nav-link" routerLink="users">
+        <div>
+          <mat-icon>person_3</mat-icon>
+        </div>
+        <div>
+          <span class="sn-span">Users</span>
+        </div>
+      </li>
+      <li class="nav-link">
+        <div>
+          <mat-icon>fingerprint</mat-icon>
+        </div>
+        <div>
+          <span class="sn-span">Acces rights</span>
+        </div>
+      </li>
+      <li class="nav-link logout">
+        <div>
+          <mat-icon>logout</mat-icon>
+        </div>
+        <div>
+          <span class="sn-span">Logout</span>
+        </div>
+      </li>
+    </ul>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <mat-toolbar-row>
+        <div class="logo">
+          <div>
+            <a class="logo-link">
+              <img src="../assets/imgs/svg/Authentication-rafiki.svg" alt="">
+            </a>
+          </div>
+          <div>
+            <button class="side-btn" (click)="opened=!opened">
+              <i class="bi bi-menu-button-wide"></i>
+            </button>
+          </div>
+        </div>
+        <div class="tools">
+          <span class="tb-span">
+            <i class="bi bi-bell"></i>
+          </span>
+          <span class="tb-span">
+            <i class="bi bi-chat-left"></i>
+          </span>
+          <span class="tb-span">
+            <i class="bi bi-info-circle"></i>
+          </span>
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <div class="router-outlet">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,50 @@
+.section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    width: 500px;
+}
+
+.card-panel {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 16px;
+    background: #FFF;
+    border-radius: 5px;
+}
+
+.form-header {
+    width: 100%;
+    padding: 5px;
+}
+
+.form-group {
+    width: 50%;
+    padding: 5px;
+}
+
+.user_code_div {
+    width: 100%;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.btn-section {
+    display: flex;
+    border: solid 1px #EEE;
+    width: 100%;
+    padding: 16px;
+    justify-content: space-around;
+    border-radius: 5px;
+}
+
+.btn {
+    width: 100px;
+}

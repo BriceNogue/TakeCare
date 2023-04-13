@@ -1,0 +1,85 @@
+//@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+}
+
+section {
+    background: transparent;
+}
+
+.sec-1 {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+    align-items: center;
+    justify-content: space-between;
+    width: 88.8%;
+}
+
+.add-user {
+    margin-left: 25px;
+    padding: 3px;
+}
+
+.sec-2 {
+    width: 1100px;
+}
+
+table {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+th {
+    font-weight: bold;
+    font-size: 16px;
+    //background: #3f51b5;
+}
+
+tr.example-detail-row {
+    height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+    background: whitesmoke;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+    background: #efefef;
+}
+
+.example-element-row td {
+    border-bottom-width: 0;
+}
+
+.example-element-detail {
+    overflow: hidden;
+    display: flex;
+}
+
+.example-element-diagram {
+    min-width: 80px;
+    border: 2px solid black;
+    padding: 8px;
+    font-weight: lighter;
+    margin: 8px 0;
+    height: 104px;
+}
+
+.example-element-symbol {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: normal;
+}
+
+.example-element-description {
+    padding: 16px;
+}
+
+.example-element-description-attribution {
+    opacity: 0.5;
+}

@@ -1,0 +1,122 @@
+<div class="section">
+    <form *ngIf="user" (ngSubmit)="onSubmit()" #userForm="ngForm">
+        <div class="row">
+            <div class="col">
+                <div class="card-panel mat-elevation-z8">
+                    <div class="form-header">
+                        <h1>{{title}}</h1>
+                    </div>
+                    <!-- user_code -->
+                    <div class="form-group user_code_div">
+                        <mat-form-field appearance="outline" class="user_code">
+                            <mat-label>User code</mat-label>
+                            <input matInput placeholder="User code" required name="user_code" id="user_code"
+                                pattern="^[a-zA-Z0-9àéèç]{1,25}$" [(ngModel)]="user.user_code" #user_code="ngModel">
+                            <mat-error [hidden]="user_code.valid">Enter user code!</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <!-- first_name -->
+                    <div class="form-group">
+                        <mat-form-field appearance="outline">
+                            <mat-label>First Name</mat-label>
+                            <input matInput placeholder="First Name" required name="first_name" id="first_name"
+                                pattern="^[a-zA-Z0-9àéèç]{1,25}$" [(ngModel)]="user.first_name" #first_name="ngModel">
+                            <mat-error [hidden]="first_name.valid">Enter First Name!</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <!-- last_name -->
+                    <div class="form-group">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Last Name</mat-label>
+                            <input matInput placeholder="Last Name" required name="last_name" id="last_name"
+                                pattern="^[a-zA-Z0-9àéèç]{1,25}$" [(ngModel)]="user.last_name" #last_name="ngModel">
+                            <mat-error [hidden]="last_name.valid">Enter Last Name!</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <!-- address -->
+                    <div class="form-group">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Address</mat-label>
+                            <input matInput placeholder="Address" required name="address" id="address"
+                                pattern="^[a-zA-Z0-9àéèç]{1,25}$" [(ngModel)]="user.address" #address="ngModel">
+                            <mat-error [hidden]="address.valid">Enter Address!</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <!-- phone -->
+                    <div class="form-group">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Phone</mat-label>
+                            <input matInput placeholder="Phone" required name="phone" id="phone" [(ngModel)]="user.phone"
+                                #phone="ngModel">
+                            <mat-error [hidden]="phone.valid">Enter Phone Number!</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <!-- picture -->
+                    <div class="form-group">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Picture</mat-label>
+                            <input matInput placeholder="Picture" required name="picture" id="picture"
+                                pattern="^[a-zA-Z0-9àéèç]{1,25}$" [(ngModel)]="user.picture" #picture="ngModel">
+                            <mat-error [hidden]="picture.valid">Choose Picture!</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <!-- User Service -->
+                    <div class="form-group">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Services</mat-label>
+                            <mat-select required name="service" id="service" [(ngModel)]="user.service" #service="ngModel">
+                                <mat-option></mat-option>
+                                <mat-option *ngFor="let service of services" [value]="service">
+                                    {{service}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error [hidden]="service.valid">Please select service</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <!-- password -->
+                    <div class="form-group">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Password</mat-label>
+                            <input matInput placeholder="Password" required name="password" id="password"
+                                [type]="hide ? 'password' : 'text'" [(ngModel)]="user.password" #password="ngModel">
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                                [attr.aria-pressed]="hide">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                            <mat-error [hidden]="password.valid">Enter Password!</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <!-- confirm password -->
+                    <!--<div class="form-group">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Confirm Password</mat-label>
+                            <input matInput placeholder="Confirm Password" required name="confirm_password" id="confirm_password"
+                                [type]="hide ? 'password' : 'text'" [(ngModel)]="user.password" #confirm_password="ngModel">
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                                [attr.aria-pressed]="hide">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                            <mat-error [hidden]="confirm_password.valid">Password does not match!</mat-error>
+                        </mat-form-field>
+                    </div>-->
+    
+                    <!-- submit btn -->
+                    <div class="divider"></div>
+                    <div class="btn-section center">
+                        <div>
+                            <button type="reset" mat-raised-button color="warn" class="waves-effect waves-light btn">
+                                Cancel
+                            </button>
+                        </div>
+                        <div>
+                            <button type="submit" mat-raised-button color="primary" class="waves-effect waves-light btn"
+                                [disabled]="!userForm.form.valid">
+                                Save
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,43 @@
+<div class="mat-elevation-z8">
+    <ejs-schedule height="500" 
+        [eventSettings]="eventObject" 
+        [allowDragAndDrop]="false" 
+        [allowResizing]="false" 
+        [selectedDate]="setDate" 
+        [currentView]="setView" 
+        [views]="setViews">
+
+
+        <e-views>
+            <e-view option="Day" [interval]="3" displayName="3 Days" startHour="08:00" endHour="18:00"></e-view>
+            <e-view option="Week">
+                <ng-template #eventTemplate let-data>
+                    <div class="week-template-wrapper">
+                        {{data.id}}
+                    </div>
+                    <div class="week-template-wrapper">
+                        {{data.Subject}}
+                    </div>
+                    <div class="week-template-wrapper">
+                        {{data.StartTime}}
+                    </div>
+                </ng-template>
+            </e-view>
+            <e-view option="Month">
+                <ng-template #eventTemplate let-data>
+                    <div class="template-wrapper">
+                        {{data.id}}
+                    </div>
+                    <div class="template-wrapper">
+                        {{data.Subject}}
+                    </div>
+                    <div class="template-wrapper">
+                        {{data.StartTime}}
+                    </div>
+                </ng-template>
+            </e-view>
+            <e-view option="Agenda"></e-view>
+        </e-views>
+    
+    </ejs-schedule>
+</div>
