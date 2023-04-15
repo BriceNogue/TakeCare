@@ -11,17 +11,23 @@ import { UserService } from 'src/app/services/user-service.service';
 
 export class UserFormComponent implements OnInit {
 
-  @Input() user: UserModel = new UserModel;
+  @Input() user: UserModel;
   services: string[];
   isAddForm: boolean;
   hide: boolean = true;
-  title: string = 'Add User';
+  title: string = '';
 
   constructor(private router: Router, private userSerice: UserService) { }
 
   ngOnInit(): void {
     this.services = this.userSerice.getUserServices();
     this.isAddForm = this.router.url.includes('add');
+
+    if(this.isAddForm) {
+      this.title = 'Add User'
+    } else {
+      this.title = 'Edit User: '+ this.user.first_name;
+    }
   }
 
   hasService(service: string): boolean {
@@ -50,12 +56,10 @@ export class UserFormComponent implements OnInit {
   onSubmit() {
     if(this.isAddForm) {
       this.userSerice.addUser(this.user)
-      .subscribe((user: UserModel) => this.router.navigate(['/user', user.id]));
-      this.title = 'Add User'
+      .subscribe((user: UserModel) => this.router.navigate(['/user', user._id]));
     } else {
       this.userSerice.updateUser(this.user)
-      .subscribe(() => this.router.navigate(['/user', this.user.id]));
-      this.title = 'Edire User '+ this.user.first_name;
+      .subscribe(() => this.router.navigate(['/user', this.user._id]));
     }
   }
 

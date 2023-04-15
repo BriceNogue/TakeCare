@@ -16,6 +16,7 @@ mat-sidenav {
 mat-sidenav-content {
     width: 100%;
     background: #EEE;
+    overflow: hidden;
 }
 
 .router-outlet {

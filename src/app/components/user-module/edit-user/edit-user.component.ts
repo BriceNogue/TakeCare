@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UserModel } from 'src/app/models/user-model';
+import { UserService } from 'src/app/services/user-service.service';
 
 @Component({
   selector: 'app-edit-user',
@@ -8,9 +10,18 @@ import { Router } from '@angular/router';
 })
 export class EditUserComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  user: UserModel | undefined;
+
+  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService) { }
 
   ngOnInit(): void {
+    const userId: string|null = this.route.snapshot.paramMap.get('id');
+    if(userId) {
+      this.userService.getUserById(userId).subscribe(user => this.user = user);
+    }else{
+      this.user = undefined;
+      console.log("idddddd"+userId);
+    }
   }
 
   goToUsers() {

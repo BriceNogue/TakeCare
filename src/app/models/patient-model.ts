@@ -12,31 +12,29 @@ export class PatientModel {
    public gender: string;
    public assurance: string;
    public phone?: string;
-   public picture?: ImageData;
+   public picture?: string;
    public marital_status?: string;
    public emergency_number?: string;
    public occupation?: string;
    public password?: string;
 
     constructor(
-        id: number,
-        patient_code: string,
-        first_name: string,
-        last_name: string,
-        address: string,
-        inscription_date: Date,
-        birthday: Date,
-        age: number,
-        gender: string,
-        assurance: string,
-        phone?: string,
-        picture?: ImageData,
-        marital_status?: string,
-        emergency_number?: string,
-        occupation?: string,
-        password?: string
+        patient_code: string = "",
+        first_name: string = "",
+        last_name: string = "",
+        address: string = "",
+        inscription_date: Date = new Date(),
+        birthday: Date = new Date(),
+        age: number = 0,
+        gender: string = "",
+        assurance: string = "",
+        phone: string = "",
+        picture: string = "",
+        marital_status: string = "",
+        emergency_number: string = "",
+        occupation: string = "",
+        password: string = ""
     ) {
-        this.id = id,
         this.patient_code = patient_code;
         this.first_name = first_name,
         this.last_name = last_name,

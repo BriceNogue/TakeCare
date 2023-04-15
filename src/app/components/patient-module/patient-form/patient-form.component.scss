@@ -1,0 +1,50 @@
+.section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    width: 800px;
+}
+
+.card-panel {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    background: #FFF;
+    border-radius: 5px;
+}
+
+.form-header {
+    width: 100%;
+    padding: 3px;
+}
+
+.form-group {
+    width: 33.3%;
+    padding: 3px;
+}
+
+.patient_code_div {
+    width: 100%;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.btn-section {
+    display: flex;
+    border: solid 1px #EEE;
+    width: 100%;
+    padding: 10px;
+    justify-content: space-around;
+    border-radius: 5px;
+}
+
+.btn {
+    width: 100px;
+}

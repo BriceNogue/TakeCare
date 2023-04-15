@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserModel } from 'src/app/models/user-model';
 
 @Component({
   selector: 'app-add-user',
@@ -8,9 +9,12 @@ import { Router } from '@angular/router';
 })
 export class AddUserComponent implements OnInit {
 
+  user: UserModel;
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.user = new UserModel();
   }
 
   goToUsers() {
