@@ -4,11 +4,11 @@ import { UserModel } from 'src/app/models/user-model';
 import { UserService } from 'src/app/services/user-service.service';
 
 @Component({
-  selector: 'app-edit-user',
-  templateUrl: './edit-user.component.html',
-  styleUrls: ['./edit-user.component.scss']
+  selector: 'app-detail-user',
+  templateUrl: './detail-user.component.html',
+  styleUrls: ['./detail-user.component.scss']
 })
-export class EditUserComponent implements OnInit {
+export class DetailUserComponent implements OnInit {
 
   user: UserModel | undefined;
 
@@ -24,8 +24,16 @@ export class EditUserComponent implements OnInit {
     }
   }
 
-  goToUserDetail(user: UserModel) {
-    this.router.navigate(['/users/'+user._id]);
+  deleteUser(user: UserModel){
+    this.userService.deleteUser(user).subscribe(() => this.router.navigate(['/users']))
+  }
+
+  goToEditUser(userId: string) {
+    this.router.navigate(['/user/'+userId])
+  }
+
+  goToUsers() {
+    this.router.navigate(['/users']);
   }
 
 }

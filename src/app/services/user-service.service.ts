@@ -50,6 +50,7 @@ export class UserService {
     const httpOptions = {
       headers: new HttpHeaders({'Content-type': 'application/json'})
     };
+    console.log(user);
 
     return this.http.put(this.API_URL_USER+"user/"+user._id, user, httpOptions).pipe(
       tap((response) => this.log(response)),
@@ -57,8 +58,8 @@ export class UserService {
     );
   }
 
-  deleteUser(userId: string): Observable<null> {
-    return this.http.delete(`API_URL_USER/${userId}`).pipe(
+  deleteUser(user: UserModel): Observable<null> {
+    return this.http.delete(this.API_URL_USER+"user/"+user._id).pipe(
       tap((response) => this.log(response)),
       catchError((error) => this.handleError(error,null))
     );

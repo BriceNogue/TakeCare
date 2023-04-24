@@ -1,0 +1,44 @@
+<div class="section">
+    <div class="details mat-elevation-z8" *ngIf="user">
+        <div class="title">
+            <h1>About {{ user.first_name }}</h1>
+        </div>
+        <div>
+            <hr>
+        </div>
+        <div class="detail">
+            <h3><span>User Code: </span> {{ user.user_code }}</h3>
+        </div>
+        <div class="detail">
+            <h3><span>First Name: </span> {{ user.first_name }}</h3>
+        </div>
+        <div class="detail">
+            <h3><span>Last Name: </span> {{ user.last_name }}</h3>
+        </div>
+        <div class="detail">
+            <h3><span>Address: </span> {{ user.address }}</h3>
+        </div>
+        <div class="detail">
+            <h3><span>Service: </span> {{ user.service }}</h3>
+        </div>
+        <div class="detail">
+            <h3><span>Phone Number: </span> {{ user.phone }}</h3>
+        </div>
+        <div>
+            <hr>
+        </div>
+        <div class="btns">
+            <div>
+                <button mat-raised-button color="primary" (click)="goToUsers()">Back</button>
+            </div>
+            <div>
+                <button mat-raised-button color="warn" class="waves-effect waves-light btn" (click)="deleteUser(user)">
+                    Delete
+                </button>
+            </div>
+            <div>
+                <button mat-raised-button class="btn-edit" (click)="goToEditUser(user._id)">Edit</button>
+            </div>
+        </div>
+    </div>
+</div>

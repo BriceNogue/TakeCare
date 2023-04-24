@@ -1,0 +1,45 @@
+.section {
+    width: 100%;
+}
+
+.details {
+    width: 500px;
+    padding: 16px;
+    border-radius: 5px;
+    background: #FFF;
+}
+
+h1 {
+    color: gray;
+}
+
+hr {
+    color: gray;
+}
+
+h3 {
+    font-size: 16px;
+    border: solid 1px #EEE;
+    padding: 5px;
+    border-radius: 5px;
+    color: gray;
+}
+
+span {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.btns {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    width: 100px;
+}
+
+.btn-edit {
+    background: green;
+    color: #FFF;
+}

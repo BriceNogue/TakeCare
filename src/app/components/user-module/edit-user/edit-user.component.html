@@ -1,10 +1,10 @@
-<div class="section">
+<div class="section" *ngIf="user">
     <div class="title">
-        <button (click)="goToUsers()" mat-mini-fab color="primary" aria-label="Go back to user list">
+        <button (click)="goToUserDetail(user)" mat-mini-fab color="primary" aria-label="Go back to user list">
             <mat-icon>arrow_back</mat-icon>
-          </button>
+        </button>
     </div>
     <div class="conten">
-        <app-user-form *ngIf="user" [user]="user"></app-user-form>
+        <app-user-form  [user]="user"></app-user-form>
     </div>
 </div>

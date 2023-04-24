@@ -40,6 +40,12 @@ import { ScheduleModule,
 
 import { UserService } from './services/user-service.service';
 import { HttpClientModule } from '@angular/common/http';
+import { DetailUserComponent } from './components/user-module/detail-user/detail-user.component';
+import { ServiceListComponent } from './components/service-module/service-list/service-list.component';
+import { AddServiceComponent } from './components/service-module/add-service/add-service.component';
+import { EditServiceComponent } from './components/service-module/edit-service/edit-service.component';
+import { ServiceFormComponent } from './components/service-module/service-form/service-form.component';
+import { DetailServiceComponent } from './components/service-module/detail-service/detail-service.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +67,12 @@ import { HttpClientModule } from '@angular/common/http';
     PrescriptionComponent,
     PaymentComponent,
     DashboardComponent,
+    DetailUserComponent,
+    ServiceListComponent,
+    AddServiceComponent,
+    EditServiceComponent,
+    ServiceFormComponent,
+    DetailServiceComponent,
   ],
   imports: [
     BrowserModule,

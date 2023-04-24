@@ -17,10 +17,10 @@ export class UserFormComponent implements OnInit {
   hide: boolean = true;
   title: string = '';
 
-  constructor(private router: Router, private userSerice: UserService) { }
+  constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit(): void {
-    this.services = this.userSerice.getUserServices();
+    this.services = this.userService.getUserServices();
     this.isAddForm = this.router.url.includes('add');
 
     if(this.isAddForm) {
@@ -55,11 +55,11 @@ export class UserFormComponent implements OnInit {
 
   onSubmit() {
     if(this.isAddForm) {
-      this.userSerice.addUser(this.user)
-      .subscribe((user: UserModel) => this.router.navigate(['/user', user._id]));
+      this.userService.addUser(this.user)
+      .subscribe((user: UserModel) => this.router.navigate(['/users', user._id]));
     } else {
-      this.userSerice.updateUser(this.user)
-      .subscribe(() => this.router.navigate(['/user', this.user._id]));
+      this.userService.updateUser(this.user)
+      .subscribe(() => this.router.navigate(['/users', this.user._id]));
     }
   }
 
