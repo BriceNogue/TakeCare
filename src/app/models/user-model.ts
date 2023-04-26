@@ -7,7 +7,7 @@ export class UserModel {
     public service: string;
     public phone?: string;
     public picture?: string;
-    public password?: string;
+    public password: string;
 
     constructor(
         user_code: string = '',

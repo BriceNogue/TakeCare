@@ -1,5 +1,5 @@
 <mat-sidenav-container>
-  <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+  <mat-sidenav #sidenav mode="over" [(opened)]="opened">
     <div class="user-info">
       <div class="user-profil">
         <img src="../assets/imgs/svg/Authentication-rafiki.svg" alt="">
@@ -84,7 +84,7 @@
           <span class="sn-span">Acces rights</span>
         </div>
       </li>
-      <li class="nav-link logout">
+      <li class="nav-link logout" (click)="logout()">
         <div>
           <mat-icon>logout</mat-icon>
         </div>

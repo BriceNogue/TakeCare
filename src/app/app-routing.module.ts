@@ -5,6 +5,7 @@ import { AppointmentComponent } from './components/appointment/appointment.compo
 import { ConsultationComponent } from './components/consultation/consultation.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AddPatientComponent } from './components/patient-module/add-patient/add-patient.component';
 import { EditPatientComponent } from './components/patient-module/edit-patient/edit-patient.component';
@@ -36,8 +37,9 @@ const routes: Routes = [
   {path:"services", component: ServiceListComponent},
   {path:"services/:id", component: DetailServiceComponent},
   {path:"service/:id", component: EditServiceComponent},
+  {path:"login", component: LoginComponent},
 
-  {path:"", redirectTo:"home", pathMatch:"full"},
+  {path:"", redirectTo:"login", pathMatch:"full"},
   {path:"**", component: NotFoundComponent}
 ];
 

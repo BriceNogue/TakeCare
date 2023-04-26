@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SplashScreenComponent } from './components/splash-screen/splash-screen.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
@@ -46,6 +46,7 @@ import { AddServiceComponent } from './components/service-module/add-service/add
 import { EditServiceComponent } from './components/service-module/edit-service/edit-service.component';
 import { ServiceFormComponent } from './components/service-module/service-form/service-form.component';
 import { DetailServiceComponent } from './components/service-module/detail-service/detail-service.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { DetailServiceComponent } from './components/service-module/detail-servi
     EditServiceComponent,
     ServiceFormComponent,
     DetailServiceComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,6 +83,7 @@ import { DetailServiceComponent } from './components/service-module/detail-servi
     HttpClientModule,
 
     FormsModule,
+    ReactiveFormsModule,
     MaterialModule,
     ScheduleModule,
     RecurrenceEditorModule,
