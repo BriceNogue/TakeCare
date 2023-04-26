@@ -28,7 +28,7 @@ export class AuthService {
   authentication(loginModel: LoginModel): Observable<LoginModel> {
     return this.http.post<LoginModel>(this.API_URL_LOGIN + "/login", loginModel, { withCredentials: true }).pipe(
       tap((res) =>
-        this.log(res),
+        this.log(res)
       ),
       catchError((error) => this.handleError(error, null))
     );

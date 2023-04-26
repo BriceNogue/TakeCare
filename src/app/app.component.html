@@ -103,22 +103,30 @@
               <img src="../assets/imgs/svg/Authentication-rafiki.svg" alt="">
             </a>
           </div>
-          <div>
+          <div *ngIf="isLoggedIn">
             <button class="side-btn" (click)="opened=!opened">
               <i class="bi bi-menu-button-wide"></i>
             </button>
           </div>
         </div>
         <div class="tools">
-          <span class="tb-span">
-            <i class="bi bi-bell"></i>
-          </span>
-          <span class="tb-span">
-            <i class="bi bi-chat-left"></i>
-          </span>
-          <span class="tb-span">
-            <i class="bi bi-info-circle"></i>
-          </span>
+          <div *ngIf="isLoggedIn">
+            <span class="tb-span">
+              <i class="bi bi-bell"></i>
+            </span>
+            <span class="tb-span">
+              <i class="bi bi-chat-left"></i>
+            </span>
+            <span class="tb-span">
+              <i class="bi bi-info-circle"></i>
+            </span>
+          </div>
+
+          <div *ngIf="!isLoggedIn">
+            <button class="btn-login" (click)="login()">
+              Login
+            </button>
+          </div>
         </div>
       </mat-toolbar-row>
     </mat-toolbar>

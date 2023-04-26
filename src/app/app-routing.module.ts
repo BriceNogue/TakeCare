@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth.guard';
 import { AppointmentComponent } from './components/appointment/appointment.component';
 import { ConsultationComponent } from './components/consultation/consultation.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -21,26 +22,26 @@ import { EditUserComponent } from './components/user-module/edit-user/edit-user.
 import { UserListComponent } from './components/user-module/user-list/user-list.component';
 
 const routes: Routes = [
-  {path:"home", component: HomeComponent},
-  {path:"dashboard", component: DashboardComponent},
-  {path:"add_user", component: AddUserComponent},
-  {path:"users", component: UserListComponent},
-  {path:"user/:id", component: EditUserComponent},
-  {path:"users/:id", component: DetailUserComponent},
-  {path:"patients", component: PatientsListComponent},
-  {path:"add_patient", component: AddPatientComponent},
-  {path:"patient/:id", component: EditPatientComponent},
-  {path:"consultations", component: ConsultationComponent},
-  {path:"prescriptions", component: PrescriptionComponent},
-  {path:"appointments", component: AppointmentComponent},
-  {path:"payments", component: PaymentComponent},
-  {path:"services", component: ServiceListComponent},
-  {path:"services/:id", component: DetailServiceComponent},
-  {path:"service/:id", component: EditServiceComponent},
-  {path:"login", component: LoginComponent},
+  { path: "home", component: HomeComponent, canActivate: [AuthGuard] },
+  { path: "dashboard", component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: "add_user", component: AddUserComponent, canActivate: [AuthGuard] },
+  { path: "users", component: UserListComponent, canActivate: [AuthGuard] },
+  { path: "user/:id", component: EditUserComponent, canActivate: [AuthGuard] },
+  { path: "users/:id", component: DetailUserComponent, canActivate: [AuthGuard] },
+  { path: "patients", component: PatientsListComponent, canActivate: [AuthGuard] },
+  { path: "add_patient", component: AddPatientComponent, canActivate: [AuthGuard] },
+  { path: "patient/:id", component: EditPatientComponent, canActivate: [AuthGuard] },
+  { path: "consultations", component: ConsultationComponent, canActivate: [AuthGuard] },
+  { path: "prescriptions", component: PrescriptionComponent, canActivate: [AuthGuard] },
+  { path: "appointments", component: AppointmentComponent, canActivate: [AuthGuard] },
+  { path: "payments", component: PaymentComponent, canActivate: [AuthGuard] },
+  { path: "services", component: ServiceListComponent, canActivate: [AuthGuard] },
+  { path: "services/:id", component: DetailServiceComponent, canActivate: [AuthGuard] },
+  { path: "service/:id", component: EditServiceComponent, canActivate: [AuthGuard] },
+  { path: "login", component: LoginComponent },
 
-  {path:"", redirectTo:"login", pathMatch:"full"},
-  {path:"**", component: NotFoundComponent}
+  { path: "", redirectTo: "login", pathMatch: "full" },
+  { path: "**", component: NotFoundComponent }
 ];
 
 @NgModule({
