@@ -1,5 +1,16 @@
 //@import '../../../../node_modules/@syncfusion/ej2-material-theme/styles/material.css';
 
+.scheduler-div {
+    width: 600px;
+    padding: 16px;
+    border-radius: 5px;
+}
+
+ejs-schedule {
+    //border-radius: 5px;
+    border: none;
+}
+
 .e-schedule .e-appointment-details {
     padding: 0 !important;
 }

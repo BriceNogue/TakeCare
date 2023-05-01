@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { Observable, of, delay, tap, catchError } from 'rxjs';
 import { LoginModel } from '../models/login-model';
 import { UserModel } from '../models/user-model';
@@ -11,8 +11,7 @@ export class AuthService {
 
   API_URL_LOGIN: string = "http://127.0.0.1:9000/api";
 
-  isLoggedIn: boolean = false;
-  redirectUrl: string;
+  isLoggedIn: boolean = true;
 
   constructor(private http: HttpClient) { }
 
@@ -25,10 +24,12 @@ export class AuthService {
     return of(errorValue);
   }
 
-  authentication(loginModel: LoginModel): Observable<LoginModel> {
+  authentication(loginModel: LoginModel): Observable<boolean> {
     return this.http.post<LoginModel>(this.API_URL_LOGIN + "/login", loginModel, { withCredentials: true }).pipe(
-      tap((res) =>
-        this.log(res)
+      tap((res) => {
+        this.log(res);
+       // this.isLoggedIn = true;
+      }
       ),
       catchError((error) => this.handleError(error, null))
     );
@@ -36,16 +37,21 @@ export class AuthService {
 
   login(): Observable<UserModel> {
     return this.http.get<UserModel>(this.API_URL_LOGIN + "/user", { withCredentials: true }).pipe(
-      tap((res) => this.log(res)),
+      tap((res) => {
+          this.log(res);
+          //this.isLoggedIn = true;
+      }),
       catchError((error) => this.handleError(error, null))
     )
   }
 
   logout(): any {
-    return this.http.post(this.API_URL_LOGIN+"/logout", {}, {withCredentials: true}).pipe(
-      tap((res) => this.log(res)),
+    return this.http.post(this.API_URL_LOGIN + "/logout", {}, { withCredentials: true }).pipe(
+      tap((res) => {
+        this.log(res);
+        //this.isLoggedIn = false;
+      }),
       catchError((error) => this.handleError(error, null))
     );
-    this.isLoggedIn = false;
   }
 }

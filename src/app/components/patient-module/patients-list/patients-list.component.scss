@@ -17,6 +17,7 @@ section {
     margin-bottom: 15px;
     align-items: center;
     justify-content: space-between;
+    width: 80%;
 }
 
 .add-user {
@@ -78,6 +79,19 @@ tr.example-element-row:not(.example-expanded-row):active {
 
 .example-element-description {
     padding: 16px;
+}
+
+.tab-actions-btns {
+    display: flex;
+    align-items: center;
+
+    .tab-action-btn{
+        padding: 0 16px 0 0;
+
+        button {
+            width: 120px;
+        }
+    }
 }
 
 .example-element-description-attribution {

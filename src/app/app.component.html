@@ -28,6 +28,14 @@
           <span class="sn-span">Patients</span>
         </div>
       </li>
+      <li class="nav-link" routerLink="appointments">
+        <div>
+          <mat-icon>free_cancellation</mat-icon>
+        </div>
+        <div>
+          <span class="sn-span">Appointments</span>
+        </div>
+      </li>
       <li class="nav-link" routerLink="consultations">
         <div>
           <mat-icon>volunteer_activism</mat-icon>
@@ -44,14 +52,6 @@
           <span class="sn-span">Prescriptions</span>
         </div>
       </li>
-      <li class="nav-link" routerLink="appointments">
-        <div>
-          <mat-icon>free_cancellation</mat-icon>
-        </div>
-        <div>
-          <span class="sn-span">Appointments</span>
-        </div>
-      </li>
       <li class="nav-link" routerLink="payments">
         <div>
           <mat-icon>paid</mat-icon>
@@ -60,20 +60,20 @@
           <span class="sn-span">Payments</span>
         </div>
       </li>
-      <li class="nav-link" routerLink="users">
-        <div>
-          <mat-icon>person_3</mat-icon>
-        </div>
-        <div>
-          <span class="sn-span">Users</span>
-        </div>
-      </li>
       <li class="nav-link" routerLink="services">
         <div>
           <mat-icon>healing</mat-icon>
         </div>
         <div>
           <span class="sn-span">Services</span>
+        </div>
+      </li>
+      <li class="nav-link" routerLink="users">
+        <div>
+          <mat-icon>person_3</mat-icon>
+        </div>
+        <div>
+          <span class="sn-span">Users</span>
         </div>
       </li>
       <li class="nav-link">
@@ -123,7 +123,7 @@
           </div>
 
           <div *ngIf="!isLoggedIn">
-            <button class="btn-login" (click)="login()">
+            <button mat-raised-button color="primary" class="btn-login" (click)="login()">
               Login
             </button>
           </div>

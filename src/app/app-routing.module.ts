@@ -9,6 +9,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AddPatientComponent } from './components/patient-module/add-patient/add-patient.component';
+import { DetailPatientComponent } from './components/patient-module/detail-patient/detail-patient.component';
 import { EditPatientComponent } from './components/patient-module/edit-patient/edit-patient.component';
 import { PatientsListComponent } from './components/patient-module/patients-list/patients-list.component';
 import { PaymentComponent } from './components/payment/payment.component';
@@ -22,7 +23,7 @@ import { EditUserComponent } from './components/user-module/edit-user/edit-user.
 import { UserListComponent } from './components/user-module/user-list/user-list.component';
 
 const routes: Routes = [
-  { path: "home", component: HomeComponent, canActivate: [AuthGuard] },
+  { path: "home", component: HomeComponent },
   { path: "dashboard", component: DashboardComponent, canActivate: [AuthGuard] },
   { path: "add_user", component: AddUserComponent, canActivate: [AuthGuard] },
   { path: "users", component: UserListComponent, canActivate: [AuthGuard] },
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: "users/:id", component: DetailUserComponent, canActivate: [AuthGuard] },
   { path: "patients", component: PatientsListComponent, canActivate: [AuthGuard] },
   { path: "add_patient", component: AddPatientComponent, canActivate: [AuthGuard] },
+  { path: "patients/:id", component: DetailPatientComponent, canActivate: [AuthGuard]}, 
   { path: "patient/:id", component: EditPatientComponent, canActivate: [AuthGuard] },
   { path: "consultations", component: ConsultationComponent, canActivate: [AuthGuard] },
   { path: "prescriptions", component: PrescriptionComponent, canActivate: [AuthGuard] },
@@ -40,7 +42,7 @@ const routes: Routes = [
   { path: "service/:id", component: EditServiceComponent, canActivate: [AuthGuard] },
   { path: "login", component: LoginComponent },
 
-  { path: "", redirectTo: "login", pathMatch: "full" },
+  { path: "", redirectTo: "home", pathMatch: "full" },
   { path: "**", component: NotFoundComponent }
 ];
 

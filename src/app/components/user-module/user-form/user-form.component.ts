@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ServiceModel } from 'src/app/models/service-model';
 import { UserModel } from 'src/app/models/user-model';
+import { HServiceService } from 'src/app/services/h-service.service';
 import { UserService } from 'src/app/services/user-service.service';
 //import * as bcrypt from 'bcryptjs';
 
@@ -13,15 +15,19 @@ import { UserService } from 'src/app/services/user-service.service';
 export class UserFormComponent implements OnInit {
 
   @Input() user: UserModel;
-  services: string[];
+  services: ServiceModel[];
   isAddForm: boolean;
   hide: boolean = true;
   title: string = '';
 
-  constructor(private router: Router, private userService: UserService) { }
+  constructor(
+    private router: Router, 
+    private userService: UserService,
+    private h_service: HServiceService
+    ) { }
 
   ngOnInit(): void {
-    this.services = this.userService.getUserServices();
+    this.h_service.getServices().subscribe(services => this.services = services);
     this.isAddForm = this.router.url.includes('add');
 
     if(this.isAddForm) {
@@ -29,29 +35,6 @@ export class UserFormComponent implements OnInit {
     } else {
       this.title = 'Edit User: '+ this.user.first_name;
     }
-  }
-
-  hasService(service: string): boolean {
-    return this.user.service.includes(service);
-  }
-
-  selectService($event: Event, service: string) {
-    const isChecked: boolean = ($event.target as HTMLInputElement).checked;
-
-    if(isChecked){
-      this.user.service.replace(this.user.service, service);
-    }else{
-      const index = this.user.service.indexOf(service);
-      this.user.service.replace(this.user.service, service)
-    }
-  }
-
-  isServiceValid(service: string): boolean {
-    if(this.user.service && this.hasService(service)) {
-      return false;
-    }
-
-    return true;
   }
 
   onSubmit() {

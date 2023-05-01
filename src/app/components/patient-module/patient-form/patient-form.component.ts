@@ -15,6 +15,7 @@ export class PatientFormComponent implements OnInit {
   title: string = '';
   hide: boolean = true;
 
+
   constructor(private router: Router, private patientService: PatientService) {}
 
   ngOnInit(): void {

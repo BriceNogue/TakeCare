@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { View, EventSettingsModel } from '@syncfusion/ej2-angular-schedule';
 import { DataManager, WebApiAdaptor } from '@syncfusion/ej2-data';
 
@@ -7,7 +7,7 @@ import { DataManager, WebApiAdaptor } from '@syncfusion/ej2-data';
   templateUrl: './appointment.component.html',
   styleUrls: ['./appointment.component.scss']
 })
-export class AppointmentComponent {
+export class AppointmentComponent implements OnInit {
   public setView: View = 'WorkWeek';
   //public setDate: Date = new Date(2017, 5, 5);
   public setDate: Date = new Date(2023, 3, 12);
@@ -52,4 +52,8 @@ export class AppointmentComponent {
   public setViews: View[] = ["Day", "Week", "WorkWeek", "Agenda", "TimelineMonth", "TimelineDay"];
 
   constructor() { }
+
+  ngOnInit(): void {
+      
+  }
 }

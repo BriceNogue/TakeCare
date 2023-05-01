@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserModel } from './models/user-model';
 import { AuthService } from './services/auth.service';
 
 @Component({
@@ -7,20 +8,28 @@ import { AuthService } from './services/auth.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit, AfterViewInit {
   title = 'TakeCare';
   opened = false;
   isLoggedIn: boolean;
   auth: AuthService;
+  connectedUser: UserModel;
 
-  constructor (
+  constructor(
     private router: Router,
     private authService: AuthService
-  ){}
+  ) { }
 
   ngOnInit(): void {
     this.auth = this.authService;
-    this.isLoggedIn = this.auth.isLoggedIn;
+  }
+
+  ngAfterViewInit(): void {
+    this.authService.login().subscribe((user) => {
+      if (user) {
+        this.isLoggedIn = true;
+      }
+    })
   }
 
   login() {
@@ -28,8 +37,9 @@ export class AppComponent implements OnInit{
   }
 
   logout() {
-    this.authService.logout().subscribe(() => 
-      this.router.navigate(['/login'])
+    this.authService.logout().subscribe(() =>
+      this.isLoggedIn = true,
+      this.router.navigate(['/home'])
     );
   }
 }

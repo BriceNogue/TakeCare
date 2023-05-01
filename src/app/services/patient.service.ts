@@ -8,7 +8,7 @@ import { PatientModel } from '../models/patient-model';
 })
 export class PatientService {
 
-  API_URL_PATIENT: string = ""
+  API_URL_PATIENT: string = "http://127.0.0.1:9000/api"
 
   constructor(private http: HttpClient) { }
 
@@ -26,21 +26,21 @@ export class PatientService {
       headers: new HttpHeaders({'Content-type': 'application/json'})
     };
 
-    return this.http.post<PatientModel>('API_URL_PATIENT',patient, httpOptions).pipe(
+    return this.http.post<PatientModel>(this.API_URL_PATIENT+"/patient",patient, httpOptions).pipe(
       tap((response) => this.log(response)),
       catchError((error) => this.handleError(error, null))
     );
   }
 
   getPatients(): Observable<PatientModel[]> {
-    return this.http.get<PatientModel[]>('API_URL_PATIENT').pipe(
+    return this.http.get<PatientModel[]>(this.API_URL_PATIENT+"/patients").pipe(
       tap((response) => this.log(response)),
       catchError((error) => this.handleError(error, []))
     );
   }
 
   getPatientById(patientId: number): Observable<PatientModel|undefined> {
-    return this.http.get<PatientModel>(`API_URL_PATIENT/${patientId}`).pipe(
+    return this.http.get<PatientModel>(this.API_URL_PATIENT+"/patients/"+patientId).pipe(
       tap((response) => this.log(response)),
       catchError((error) => this.handleError(error, undefined))
     )
@@ -51,14 +51,14 @@ export class PatientService {
       headers: new HttpHeaders({'Content-type': 'application/json'})
     };
 
-    return this.http.put('API_URL_PATIENT', patient, httpOptions).pipe(
+    return this.http.put(this.API_URL_PATIENT+"/patient/"+patient.id, patient, httpOptions).pipe(
       tap((response) => this.log(response)),
       catchError((error) => this.handleError(error, null))
     );
   }
 
-  deletePatient(patientId: number): Observable<null> {
-    return this.http.delete(`API_URL_PATIENT/${patientId}`).pipe(
+  deletePatient(patient: PatientModel): Observable<null> {
+    return this.http.delete(this.API_URL_PATIENT+"/patient/"+patient.id).pipe(
       tap((response) => this.log(response)),
       catchError((error) => this.handleError(error, null))
     );

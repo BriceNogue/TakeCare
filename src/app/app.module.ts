@@ -1,5 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+import { FlatpickrModule } from 'angularx-flatpickr';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -47,6 +52,8 @@ import { EditServiceComponent } from './components/service-module/edit-service/e
 import { ServiceFormComponent } from './components/service-module/service-form/service-form.component';
 import { DetailServiceComponent } from './components/service-module/detail-service/detail-service.component';
 import { LoginComponent } from './components/login/login.component';
+import { AuthService } from './services/auth.service';
+import { DetailPatientComponent } from './components/patient-module/detail-patient/detail-patient.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +82,7 @@ import { LoginComponent } from './components/login/login.component';
     ServiceFormComponent,
     DetailServiceComponent,
     LoginComponent,
+    DetailPatientComponent,
   ],
   imports: [
     BrowserModule,
@@ -101,6 +109,7 @@ import { LoginComponent } from './components/login/login.component';
     TimelineMonthService,
 
     UserService,
+    //AuthService,
   ],
   bootstrap: [AppComponent]
 })

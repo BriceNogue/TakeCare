@@ -25,13 +25,19 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
+    this.auth = this.authService;
   }
 
   login() {
     this.messsage = "Connection...";
-    this.auth.authentication(this.loginModel).subscribe(() =>
-      this.router.navigate(['/home']));
+    this.auth.authentication(this.loginModel)
+      .subscribe((isLoggedIn: boolean) => {
+        if(isLoggedIn){
+          this.router.navigate(['/home'])
+        } else {
+          this.router.navigate(['/login']);
+        }
+      });
   }
 
   logout() {

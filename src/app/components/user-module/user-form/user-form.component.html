@@ -6,7 +6,7 @@
                     <div class="form-header">
                         <h1>{{title}}</h1>
                     </div>
-                    <!-- user_code -->
+                    <!-- user_code
                     <div class="form-group user_code_div">
                         <mat-form-field appearance="outline" class="user_code">
                             <mat-label>User code</mat-label>
@@ -14,7 +14,7 @@
                                 pattern="^[a-zA-Z0-9àéèç]{1,25}$" [(ngModel)]="user.user_code" #user_code="ngModel">
                             <mat-error [hidden]="user_code.valid">Enter user code!</mat-error>
                         </mat-form-field>
-                    </div>
+                    </div>-->
                     <!-- first_name -->
                     <div class="form-group">
                         <mat-form-field appearance="outline">
@@ -66,14 +66,14 @@
                             <mat-label>Services</mat-label>
                             <mat-select required name="service" id="service" [(ngModel)]="user.service" #service="ngModel">
                                 <mat-option></mat-option>
-                                <mat-option *ngFor="let service of services" [value]="service">
-                                    {{service}}
+                                <mat-option *ngFor="let service of services" [value]="service.libelle">
+                                    {{service.libelle}}
                                 </mat-option>
                             </mat-select>
                             <mat-error [hidden]="service.valid">Please select service</mat-error>
                         </mat-form-field>
                     </div>
-                    <!-- password -->
+                    <!-- password 
                     <div class="form-group">
                         <mat-form-field appearance="outline">
                             <mat-label>Password</mat-label>
@@ -85,7 +85,7 @@
                             </button>
                             <mat-error [hidden]="password.valid">Enter Password!</mat-error>
                         </mat-form-field>
-                    </div>
+                    </div>-->
                     <!-- confirm password -->
                     <!--<div class="form-group">
                         <mat-form-field appearance="outline">
