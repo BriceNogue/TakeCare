@@ -24,8 +24,8 @@ import { EditUserComponent } from './components/user-module/edit-user/edit-user.
 import { AddPatientComponent } from './components/patient-module/add-patient/add-patient.component';
 import { EditPatientComponent } from './components/patient-module/edit-patient/edit-patient.component';
 import { PatientFormComponent } from './components/patient-module/patient-form/patient-form.component';
-import { AppointmentComponent } from './components/appointment/appointment.component';
-import { ConsultationComponent } from './components/consultation/consultation.component';
+import { AppointmentComponent } from './components/appointment-module/appointment/appointment.component';
+import { ConsultationComponent } from './components/consultation-module/consultation/consultation.component';
 import { PrescriptionComponent } from './components/prescription/prescription.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -54,6 +54,15 @@ import { DetailServiceComponent } from './components/service-module/detail-servi
 import { LoginComponent } from './components/login/login.component';
 import { AuthService } from './services/auth.service';
 import { DetailPatientComponent } from './components/patient-module/detail-patient/detail-patient.component';
+import { AppointmentCalandarComponent } from './components/appointment-module/appointment-calandar/appointment-calandar.component';
+import { AppointmentFormComponent } from './components/appointment-module/appointment-form/appointment-form.component';
+import { AddAppointmentComponent } from './components/appointment-module/add-appointment/add-appointment.component';
+import { EditAppointmentComponent } from './components/appointment-module/edit-appointment/edit-appointment.component';
+import { AppointmentListComponent } from './components/appointment-module/appointment-list/appointment-list.component';
+import { AppointmentDetailsComponent } from './components/appointment-module/appointment-details/appointment-details.component';
+import { AddConsultationComponent } from './components/consultation-module/add-consultation/add-consultation.component';
+import { EditConsultationComponent } from './components/consultation-module/edit-consultation/edit-consultation.component';
+import { ConsultatioDetailsnComponent } from './components/consultation-module/consultatio-detailsn/consultatio-detailsn.component';
 
 @NgModule({
   declarations: [
@@ -83,6 +92,15 @@ import { DetailPatientComponent } from './components/patient-module/detail-patie
     DetailServiceComponent,
     LoginComponent,
     DetailPatientComponent,
+    AppointmentCalandarComponent,
+    AppointmentFormComponent,
+    AddAppointmentComponent,
+    EditAppointmentComponent,
+    AppointmentListComponent,
+    AppointmentDetailsComponent,
+    AddConsultationComponent,
+    EditConsultationComponent,
+    ConsultatioDetailsnComponent,
   ],
   imports: [
     BrowserModule,
@@ -96,6 +114,10 @@ import { DetailPatientComponent } from './components/patient-module/detail-patie
     ScheduleModule,
     RecurrenceEditorModule,
 
+    CommonModule,
+    FlatpickrModule.forRoot(),
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
+    NgbModalModule
   ],
   providers: [
     DayService, 

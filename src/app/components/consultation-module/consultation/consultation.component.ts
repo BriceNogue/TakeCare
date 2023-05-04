@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AppointmentModel } from 'src/app/models/appointment-model';
+import { AppointmentService } from 'src/app/services/appointment.service';
 
 @Component({
   selector: 'app-consultation',
@@ -7,9 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConsultationComponent implements OnInit {
 
-  constructor() { }
+  constructor( ) { }
 
   ngOnInit(): void {
+
   }
+
 
 }

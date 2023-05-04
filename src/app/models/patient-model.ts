@@ -1,7 +1,7 @@
 import { PersonModel } from "./person-model";
 
 export class PatientModel {
-   public id: number;
+   public _id: number;
    public patient_code: string;
    public first_name: string;
    public last_name: string;

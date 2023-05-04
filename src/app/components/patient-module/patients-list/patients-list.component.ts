@@ -67,4 +67,8 @@ export class PatientsListComponent implements OnInit, AfterViewInit {
     this.router.navigate(['/add_patient']);
   }
 
+  addAppointment(patientId: string) {
+    this.router.navigate(['/add_appointment/'+patientId]);
+  }
+
 }

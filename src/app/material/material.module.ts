@@ -11,6 +11,9 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatInputModule} from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatMomentDateModule } from "@angular/material-moment-adapter";
 
 const MaterialComponents = [
   MatButtonModule,
@@ -25,6 +28,9 @@ const MaterialComponents = [
   MatInputModule,
   MatPaginatorModule,
   MatSelectModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatMomentDateModule,
 ]
 
 @NgModule({

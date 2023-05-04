@@ -31,10 +31,10 @@ export class PatientFormComponent implements OnInit {
   onSubmit() {
     if(this.isAddForm) {
       this.patientService.addPatient(this.patient)
-      .subscribe((patient: PatientModel) => this.router.navigate(['/patient', patient.id]));
+      .subscribe((patient: PatientModel) => this.router.navigate(['/patient', patient._id]));
     }else{
       this.patientService.updatePatient(this.patient)
-      .subscribe(() => this.router.navigate(['/patient', this.patient.id]));
+      .subscribe(() => this.router.navigate(['/patient', this.patient._id]));
     }
   }
 

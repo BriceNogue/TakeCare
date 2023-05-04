@@ -1,24 +1,25 @@
 <section>
-  <div class="sec-1">
-    <div>
-      <mat-form-field appearance="outline">
-        <mat-label>Search</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Searsh" #input class="searsh">
-        <mat-icon matSuffix>search</mat-icon>
-        <mat-hint>Patients {{nbr_patiens}}</mat-hint>
-      </mat-form-field>
-    </div>
-    <div>
-      <button mat-raised-button color="primary" class="add-patient" (click)=" goToAddPatient()">
-        <mat-icon>add</mat-icon>
-      </button>
-    </div>
-  </div>
-
   <div class="sec-2 mat-elevation-z8">
+
+    <div class="sec-1">
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Search</mat-label>
+          <input matInput (keyup)="applyFilter($event)" placeholder="Searsh" #input class="searsh">
+          <mat-icon matSuffix>search</mat-icon>
+          <mat-hint>Patients {{nbr_patiens}}</mat-hint>
+        </mat-form-field>
+      </div>
+      <div>
+        <button mat-raised-button color="primary" class="add-patient" (click)=" goToAddPatient()">
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+    </div>
+
     <table mat-table [dataSource]="patients" multiTemplateDataRows matSort>
       <ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumnsPatients">
-        <th mat-header-cell *matHeaderCellDef> {{column | uppercase}} </th>
+        <th mat-header-cell *matHeaderCellDef> {{column | uppercase }} </th>
         <td mat-cell *matCellDef="let patient">{{patient[column]}}</td>
       </ng-container>
       <ng-container matColumnDef="expand">
@@ -49,7 +50,7 @@
                 <button mat-raised-button color="primary" (click)="goToPatientDetail(patient._id)">Info</button>
               </div>
               <div class="tab-action-btn">
-                <button mat-raised-button color="accent" >Appointment</button>
+                <button mat-raised-button color="accent" (click)="addAppointment(patient._id)">Appointment</button>
               </div>
             </div>
           </div>

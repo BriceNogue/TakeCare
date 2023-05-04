@@ -21,29 +21,29 @@ export class UserFormComponent implements OnInit {
   title: string = '';
 
   constructor(
-    private router: Router, 
+    private router: Router,
     private userService: UserService,
     private h_service: HServiceService
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     this.h_service.getServices().subscribe(services => this.services = services);
     this.isAddForm = this.router.url.includes('add');
 
-    if(this.isAddForm) {
+    if (this.isAddForm) {
       this.title = 'Add User'
     } else {
-      this.title = 'Edit User: '+ this.user.first_name;
+      this.title = 'Edit User: ' + this.user.first_name;
     }
   }
 
   onSubmit() {
-    if(this.isAddForm) {
+    if (this.isAddForm) {
       this.userService.addUser(this.user)
-      .subscribe((user: UserModel) => this.router.navigate(['/users', user._id]));
+        .subscribe((user: UserModel) => this.router.navigate(['/users', user._id]));
     } else {
       this.userService.updateUser(this.user)
-      .subscribe(() => this.router.navigate(['/users', this.user._id]));
+        .subscribe(() => this.router.navigate(['/users', this.user._id]));
     }
   }
 

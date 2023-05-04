@@ -39,7 +39,7 @@ export class PatientService {
     );
   }
 
-  getPatientById(patientId: number): Observable<PatientModel|undefined> {
+  getPatientById(patientId: string): Observable<PatientModel|any> {
     return this.http.get<PatientModel>(this.API_URL_PATIENT+"/patients/"+patientId).pipe(
       tap((response) => this.log(response)),
       catchError((error) => this.handleError(error, undefined))
@@ -51,14 +51,14 @@ export class PatientService {
       headers: new HttpHeaders({'Content-type': 'application/json'})
     };
 
-    return this.http.put(this.API_URL_PATIENT+"/patient/"+patient.id, patient, httpOptions).pipe(
+    return this.http.put(this.API_URL_PATIENT+"/patient/"+patient._id, patient, httpOptions).pipe(
       tap((response) => this.log(response)),
       catchError((error) => this.handleError(error, null))
     );
   }
 
   deletePatient(patient: PatientModel): Observable<null> {
-    return this.http.delete(this.API_URL_PATIENT+"/patient/"+patient.id).pipe(
+    return this.http.delete(this.API_URL_PATIENT+"/patient/"+patient._id).pipe(
       tap((response) => this.log(response)),
       catchError((error) => this.handleError(error, null))
     );

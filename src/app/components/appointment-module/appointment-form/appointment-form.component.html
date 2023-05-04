@@ -1,0 +1,130 @@
+<div class="form-div mat-elevation-z8">
+    <form #appointmentForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-header">
+            <h1>Take Appointment</h1>
+        </div>
+        <div class="card-panel">
+
+            <div class="form-group">
+                <mat-form-field appearance="outline">
+                    <mat-label>Services</mat-label>
+                    <mat-select required name="service" id="service" [(ngModel)]="appointment.service_id"
+                        #service="ngModel"
+                        (ngModelChange)="onSelect($event)" >
+                        <mat-option>--Select Service--</mat-option>
+                        <mat-option *ngFor="let service of services" [value]="service._id">
+                            {{service.libelle}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error [hidden]="service.valid">Please select service</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="form-group">
+                <mat-form-field appearance="outline">
+                    <mat-label>Date</mat-label>
+                    <mat-select required name="user" id="user" [(ngModel)]="appointment.date_of_appointment"
+                        #appointmentDate="ngModel" >
+                        <mat-option></mat-option>
+                        <mat-option *ngFor="let hour of hours" [value]="hour.date">
+                            {{ hour.date }}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error [hidden]="service.valid">Please select day</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="form-group">
+                <mat-form-field appearance="outline">
+                    <mat-label>Hours</mat-label>
+                    <mat-select required name="hour" id="hour" [(ngModel)]="appointment.appointment_hour"
+                        #hour="ngModel" >
+                        <mat-option>--Select hours--</mat-option>
+                        <mat-option *ngFor="let hour of hours" [value]="hour._id">
+                            {{ hour.startTime+" -- "+hour.endTime }}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error [hidden]="hour.valid">Please select hour</mat-error>
+                </mat-form-field>
+            </div>
+
+            <!--<div class="form-group">
+                <mat-form-field appearance="outline">
+                    <mat-label>Date of appointment</mat-label>
+                    <input matInput [matDatepicker]="date_of_appointment" [formControl]="date" required
+                        name="date_of_appointment" id="date_of_appointment"
+                        [(ngModel)]="appointment.date_of_appointment">
+                    <mat-datepicker-toggle matIconSuffix [for]="date_of_appointment"></mat-datepicker-toggle>
+                    <mat-datepicker #date_of_appointment></mat-datepicker>
+                </mat-form-field>
+            </div>-->
+
+            <div class="form-group" style="display: none;">
+                <mat-form-field appearance="outline">
+                    <mat-label>Patient Id</mat-label>
+                    <input matInput placeholder="Patient Code" required name="patient_code" id="patient_code"
+                         readonly pattern="^[a-zA-Z0-9àéèç]{1,25}$"
+                        [value]="patient._id"
+                        [(ngModel)]="appointment.patient_id">
+                    <!--<mat-error [hidden]="patient_code.valid">Enter patient code!</mat-error>-->
+                </mat-form-field>
+            </div>
+
+            <div class="form-group">
+                <mat-form-field appearance="outline">
+                    <mat-label>Patient Code</mat-label>
+                    <input matInput placeholder="Patient Code" required name="patient_code" id="patient_code"
+                         readonly pattern="^[a-zA-Z0-9àéèç]{1,25}$"
+                        [value]="patient.patient_code" 
+                        [(ngModel)]="appointment.patient_id">
+                    <!--<mat-error [hidden]="patient_code.valid">Enter patient code!</mat-error>-->
+                </mat-form-field>
+            </div>
+
+            <div class="form-group">
+                <mat-form-field appearance="outline">
+                    <mat-label>Patient Name</mat-label>
+                    <input matInput placeholder="" required name="patient_id" id="patient_id"
+                        [value]='patient.first_name+ " " + patient.last_name' readonly pattern="^[a-zA-Z0-9àéèç]{1,25}$">
+                </mat-form-field>
+            </div>
+
+            <div class="form-group">
+                <mat-form-field appearance="outline">
+                    <mat-label>Dr Name</mat-label>
+                    <mat-select required name="user_name" id="user_name" [(ngModel)]="appointment.user_id"
+                        #user_name="ngModel">
+                        <mat-option></mat-option>
+                        <mat-option *ngFor="let user of users"
+                            [value]='user._id'>
+                            {{user.first_name+"  "+user.last_name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error [hidden]="user_name.valid">Please select user</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="form-group" style="display: none;">
+                <mat-form-field appearance="outline">
+                    <mat-label>User Code</mat-label>
+                    <input matInput placeholder="User Cod" required name="user_code" id="user_code"
+                        [value]='user_name.value' readonly pattern="^[a-zA-Z0-9àéèç]{1,25}$">
+                </mat-form-field>
+            </div>
+
+        </div>
+        <div class="form-cations">
+            <div class="form-cation">
+                <button type="submit" mat-raised-button color="primary" >Confirm</button>
+            </div>
+
+            <div class="form-cation">
+                <button type="reset" mat-raised-button color="warn" >Cancel</button>
+            </div>
+        </div>
+
+        <div class="form-footer">
+            <p><strong>#NB:</strong> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+    </form>
+</div>

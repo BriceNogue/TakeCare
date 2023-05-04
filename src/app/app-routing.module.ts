@@ -2,8 +2,13 @@ import { NgModule } from '@angular/core';
 
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth.guard';
-import { AppointmentComponent } from './components/appointment/appointment.component';
-import { ConsultationComponent } from './components/consultation/consultation.component';
+import { AddAppointmentComponent } from './components/appointment-module/add-appointment/add-appointment.component';
+import { AppointmentDetailsComponent } from './components/appointment-module/appointment-details/appointment-details.component';
+import { AppointmentComponent } from './components/appointment-module/appointment/appointment.component';
+import { EditAppointmentComponent } from './components/appointment-module/edit-appointment/edit-appointment.component';
+import { AddConsultationComponent } from './components/consultation-module/add-consultation/add-consultation.component';
+import { ConsultatioDetailsnComponent } from './components/consultation-module/consultatio-detailsn/consultatio-detailsn.component';
+import { ConsultationComponent } from './components/consultation-module/consultation/consultation.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
@@ -33,9 +38,18 @@ const routes: Routes = [
   { path: "add_patient", component: AddPatientComponent, canActivate: [AuthGuard] },
   { path: "patients/:id", component: DetailPatientComponent, canActivate: [AuthGuard]}, 
   { path: "patient/:id", component: EditPatientComponent, canActivate: [AuthGuard] },
+
   { path: "consultations", component: ConsultationComponent, canActivate: [AuthGuard] },
+  { path: "add_consultation/:id", component: AddConsultationComponent },
+  { path: "consultation_details/:id", component: ConsultatioDetailsnComponent },
+
   { path: "prescriptions", component: PrescriptionComponent, canActivate: [AuthGuard] },
+
   { path: "appointments", component: AppointmentComponent, canActivate: [AuthGuard] },
+  { path: "add_appointment/:id", component: AddAppointmentComponent },
+  { path: "edit_appointment/:id", component: EditAppointmentComponent },
+  { path: "appointment_details/:id", component: AppointmentDetailsComponent },
+
   { path: "payments", component: PaymentComponent, canActivate: [AuthGuard] },
   { path: "services", component: ServiceListComponent, canActivate: [AuthGuard] },
   { path: "services/:id", component: DetailServiceComponent, canActivate: [AuthGuard] },

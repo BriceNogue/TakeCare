@@ -17,7 +17,7 @@ section {
     margin-bottom: 15px;
     align-items: center;
     justify-content: space-between;
-    width: 80%;
+    width: 100%;
 }
 
 .add-user {
@@ -27,7 +27,9 @@ section {
 
 .sec-2 {
     //width: 600px;
-    max-width: 80%;
+    max-width: 100%;
+    padding: 16px;
+    border-radius: 5px;
 }
 
 table {

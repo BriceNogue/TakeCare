@@ -1,0 +1,36 @@
+.form-div {
+    width: 500px;
+    height: 400px;
+    padding: 16px;
+    display: flex;
+    border-radius: 5px;
+}
+
+form {
+    width: 100%;
+}
+
+.card-panel {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+mat-form-field {
+    width: 220px;
+}
+
+.form-cations {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    width: 220px;
+    height: 40px;
+}
+
+.form-footer {
+    padding: 16px 0 0 0;
+}
