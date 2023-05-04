@@ -26,7 +26,7 @@ export class ConsultationService {
       headers: new HttpHeaders({'Content-type': 'application/json'})
     };
 
-    return this.http.post<ConsultationModel>(this.API_URL_CONSULTATION+"/",consultation, httpOptions).pipe(
+    return this.http.post<ConsultationModel>(this.API_URL_CONSULTATION+"/consultation",consultation, httpOptions).pipe(
       tap((response) => this.log(response)),
       catchError((error) => this.handleError(error, null))
     );
@@ -46,7 +46,7 @@ export class ConsultationService {
     );
   }
 
-  updateUser(consultation: ConsultationModel): Observable<null> {
+  updateConsultation(consultation: ConsultationModel): Observable<null> {
     const httpOptions = {
       headers: new HttpHeaders({'Content-type': 'application/json'})
     };
@@ -58,7 +58,7 @@ export class ConsultationService {
     );
   }
 
-  deleteUser(consultation: ConsultationModel): Observable<null> {
+  deleteConsultation(consultation: ConsultationModel): Observable<null> {
     return this.http.delete(this.API_URL_CONSULTATION+"/consultation/"+consultation._id).pipe(
       tap((response) => this.log(response)),
       catchError((error) => this.handleError(error,null))

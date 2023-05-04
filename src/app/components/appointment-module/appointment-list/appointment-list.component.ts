@@ -57,7 +57,7 @@ export class AppointmentListComponent implements OnInit, AfterViewInit {
 
   getAllAppointments() {
     this.appointmentService.getAppointments().subscribe((appointments) => {
-      this.appointments = new MatTableDataSource(appointments),
+      this.appointments = new MatTableDataSource(appointments.reverse()),
       this.appointments.paginator = this.paginator;
       this.nbr_appointments = this.appointments.data.length;
       console.log(this.appointments);

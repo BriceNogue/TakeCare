@@ -58,7 +58,7 @@ export class AppointmentService {
     );
   }
 
-  deleteUser(appointment: AppointmentModel): Observable<null> {
+  deleteAppointment(appointment: AppointmentModel): Observable<null> {
     return this.http.delete(this.API_URL_APPOINTMENT+"/appointment/"+appointment._id).pipe(
       tap((response) => this.log(response)),
       catchError((error) => this.handleError(error,null))

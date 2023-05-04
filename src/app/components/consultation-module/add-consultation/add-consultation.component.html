@@ -1,3 +1,40 @@
-<p>add-consultation works!</p>
+<div class="consultation-infos mat-elevation-z8 ">
+    <div class="consultation-title">
+        <h2>Consultation informations</h2>
+    </div>
+    <div>
+        <hr>
+    </div>
+    <div class="consultation-information">
+        <p><strong>Appointment Id : </strong>{{appointment!._id | uppercase}}</p>
+    </div>
+    <div class="consultation-information">
+        <p><strong>Appointment Hour : </strong>{{ appointment!.appointment_hour }}</p>
+    </div>
+    <div class="consultation-information">
+        <p><strong>User Code : </strong>{{ user!.user_code }}</p>
+    </div>
+    <div class="consultation-information">
+        <p><strong>User Name : </strong> {{ user!.first_name +" "+ user!.last_name }}</p>
+    </div>
+    <div class="consultation-information">
+        <p><strong>Patient Code : </strong> {{ patient!.patient_code | uppercase }}</p>
+    </div>
+    <div class="consultation-information">
+        <p><strong>Patient Name : </strong>{{ patient!.first_name +" "+ patient!.last_name }}</p>
+    </div>
+    <div>
+        <hr>
+    </div>
+    <div class="btns">
+        <button mat-raised-button color="primary" (click)="createConsultation()">Make</button>
+    </div>
+    <div class="txt">
+        <p><strong>#NB: </strong>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    </div>
+</div>
 
-<button mat-raised-button color="primary">Make</button>
+<div id="print-section">
+    <h1>Print</h1>
+</div>
+<button printSectionId="print-section" ngxPrint >Print</button>
