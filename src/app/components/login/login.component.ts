@@ -30,13 +30,12 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.messsage = "Connection...";
-    this.auth.authentication(this.loginModel)
-      .subscribe((isLoggedIn: boolean) => {
-        if(isLoggedIn){
-          this.router.navigate(['/home'])
-        } else {
-          this.router.navigate(['/login']);
-        }
+    this.auth.login(this.loginModel)
+      .subscribe((res) => {
+        console.log(res.token);
+        
+        this.router.navigate(['/home'])
+        
       });
   }
 

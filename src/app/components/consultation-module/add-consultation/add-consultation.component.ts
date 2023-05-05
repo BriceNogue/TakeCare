@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AppointmentModel } from 'src/app/models/appointment-model';
 import { ConsultationModel } from 'src/app/models/consultation-model';
+import { PatientCardModel } from 'src/app/models/pateint_card_model';
 import { PatientModel } from 'src/app/models/patient-model';
 import { UserModel } from 'src/app/models/user-model';
 import { AppointmentService } from 'src/app/services/appointment.service';
@@ -24,6 +25,8 @@ export class AddConsultationComponent implements OnInit {
 
   user: UserModel | undefined;
   patient: PatientModel | undefined;
+
+  patientCard: PatientCardModel = new PatientCardModel;
 
   constructor(
     private router: Router,
@@ -50,6 +53,8 @@ export class AddConsultationComponent implements OnInit {
             this.appointment.service_id,
             this.appointment.user_id
           );
+
+          
           this.userService.getUserById(this.appointment.user_id).subscribe((user) =>
           this.user = user);
           this.patientService.getPatientById(this.appointment.patient_id).subscribe((patient) => 
@@ -73,6 +78,10 @@ export class AddConsultationComponent implements OnInit {
       }
       )
     }
+  }
+
+  onSubmit() {
+
   }
 
 

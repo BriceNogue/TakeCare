@@ -1,13 +1,11 @@
-
-
 tr {
     //display: flex;
     //justify-content: space-around;
 }
 
 .table-header {
-   display: flex;
-   justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 .h1-div {
@@ -19,6 +17,7 @@ tr {
     position: relative;
     top: -40px;
     color: white;
+    text-transform: uppercase;
 }
 
 .sec-1 {
@@ -41,17 +40,26 @@ td {
     overflow: hidden;
     padding: 0 0 10px 0;
     text-align: left;
-    font-size: 10px;
 }
 
 .appointment-table {
-    width: 100%;
+    width: 80%;
     border-radius: 5px;
-    padding: 0 0 5px 0;
+    padding: 16px;
 }
 
 table {
     max-height: 100px;
+}
+
+.tab {
+    border: 1px solid #EEE;
+    border-radius: 5px;
+}
+
+tr:hover {
+    background: #adb7f5;
+    color: white;
 }
 
 .actions-btns {

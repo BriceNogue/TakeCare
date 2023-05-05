@@ -6,6 +6,7 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxPrintModule } from 'ngx-print';
+import { ChartModule } from 'angular-highcharts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,9 +28,9 @@ import { EditPatientComponent } from './components/patient-module/edit-patient/e
 import { PatientFormComponent } from './components/patient-module/patient-form/patient-form.component';
 import { AppointmentComponent } from './components/appointment-module/appointment/appointment.component';
 import { ConsultationComponent } from './components/consultation-module/consultation/consultation.component';
-import { PrescriptionComponent } from './components/prescription/prescription.component';
+import { PrescriptionComponent } from './components/prescription-module/prescription/prescription.component';
 import { PaymentComponent } from './components/payment/payment.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { DashboardComponent } from './components/dashboard-module/dashboard/dashboard.component';
 import { ScheduleModule,
          RecurrenceEditorModule, 
          DayService, 
@@ -64,6 +65,8 @@ import { AppointmentDetailsComponent } from './components/appointment-module/app
 import { AddConsultationComponent } from './components/consultation-module/add-consultation/add-consultation.component';
 import { EditConsultationComponent } from './components/consultation-module/edit-consultation/edit-consultation.component';
 import { ConsultatioDetailsnComponent } from './components/consultation-module/consultatio-detailsn/consultatio-detailsn.component';
+import { CircularChartComponent } from './components/dashboard-module/circular-chart/circular-chart.component';
+import { AddPrescriptionComponent } from './components/prescription-module/add-prescription/add-prescription.component';
 
 @NgModule({
   declarations: [
@@ -102,6 +105,8 @@ import { ConsultatioDetailsnComponent } from './components/consultation-module/c
     AddConsultationComponent,
     EditConsultationComponent,
     ConsultatioDetailsnComponent,
+    CircularChartComponent,
+    AddPrescriptionComponent,
   ],
   imports: [
     BrowserModule,
@@ -115,6 +120,7 @@ import { ConsultatioDetailsnComponent } from './components/consultation-module/c
     ScheduleModule,
     RecurrenceEditorModule,
     NgxPrintModule,
+    ChartModule,
 
     CommonModule,
     FlatpickrModule.forRoot(),

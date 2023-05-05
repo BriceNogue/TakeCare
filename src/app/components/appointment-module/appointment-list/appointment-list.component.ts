@@ -21,8 +21,8 @@ export class AppointmentListComponent implements OnInit, AfterViewInit {
 
   displayedColumns: string[] = 
   [
-    'Appointment Code', 
-    'Appointment Date', 
+    //'Appointment Code', 
+    //'Appointment Date', 
     'Date Of Appointment', 
     'Hours', 
     'Service', 

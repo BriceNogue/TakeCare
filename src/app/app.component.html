@@ -1,11 +1,11 @@
-<mat-sidenav-container>
-  <mat-sidenav #sidenav mode="over" [(opened)]="opened">
+<mat-sidenav-container >
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened" *ngIf="authService.isLoggedIn$ | async" >
     <div class="user-info">
-      <div class="user-profil">
+      <div class="user-profil" >
         <img src="../assets/imgs/svg/Authentication-rafiki.svg" alt="">
       </div>
       <div class="user-name">
-        <h1>Alpha</h1>
+        <h1>TakeCare</h1>
       </div>
     </div>
     <div class="hr">
@@ -99,7 +99,7 @@
       <mat-toolbar-row>
         <div class="logo">
           <div>
-            <a class="logo-link">
+            <a class="logo-link" style="display: none;">
               <img src="../assets/imgs/svg/Authentication-rafiki.svg" alt="">
             </a>
           </div>

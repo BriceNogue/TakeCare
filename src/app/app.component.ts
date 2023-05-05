@@ -10,14 +10,14 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent implements OnInit, AfterViewInit {
   title = 'TakeCare';
-  opened = false;
+  opened = true;
   isLoggedIn: boolean;
   auth: AuthService;
   connectedUser: UserModel;
 
   constructor(
     private router: Router,
-    private authService: AuthService
+    public authService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -25,11 +25,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.authService.login().subscribe((user) => {
-      if (user) {
-        this.isLoggedIn = true;
-      }
-    })
+    
   }
 
   login() {

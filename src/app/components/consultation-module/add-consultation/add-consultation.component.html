@@ -1,40 +1,96 @@
-<div class="consultation-infos mat-elevation-z8 ">
-    <div class="consultation-title">
-        <h2>Consultation informations</h2>
-    </div>
-    <div>
-        <hr>
-    </div>
-    <div class="consultation-information">
-        <p><strong>Appointment Id : </strong>{{appointment!._id | uppercase}}</p>
-    </div>
-    <div class="consultation-information">
-        <p><strong>Appointment Hour : </strong>{{ appointment!.appointment_hour }}</p>
-    </div>
-    <div class="consultation-information">
-        <p><strong>User Code : </strong>{{ user!.user_code }}</p>
-    </div>
-    <div class="consultation-information">
-        <p><strong>User Name : </strong> {{ user!.first_name +" "+ user!.last_name }}</p>
-    </div>
-    <div class="consultation-information">
-        <p><strong>Patient Code : </strong> {{ patient!.patient_code | uppercase }}</p>
-    </div>
-    <div class="consultation-information">
-        <p><strong>Patient Name : </strong>{{ patient!.first_name +" "+ patient!.last_name }}</p>
-    </div>
-    <div>
-        <hr>
-    </div>
-    <div class="btns">
-        <button mat-raised-button color="primary" (click)="createConsultation()">Make</button>
-    </div>
-    <div class="txt">
-        <p><strong>#NB: </strong>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-    </div>
-</div>
+<div class="sections">
+    <section>
+        <div class="consultation-infos mat-elevation-z8 ">
+            <div class="consultation-title">
+                <h2>Consultation informations</h2>
+            </div>
+            <div>
+                <hr>
+            </div>
+            <div class="consultation-information">
+                <p><strong>Appointment Id : </strong>{{appointment!._id | uppercase}}</p>
+            </div>
+            <div class="consultation-information">
+                <p><strong>Appointment Hour : </strong>{{ appointment!.appointment_hour }}</p>
+            </div>
+            <div class="consultation-information">
+                <p><strong>User Code : </strong>{{ user!.user_code }}</p>
+            </div>
+            <div class="consultation-information">
+                <p><strong>User Name : </strong> {{ user!.first_name +" "+ user!.last_name }}</p>
+            </div>
+            <div class="consultation-information">
+                <p><strong>Patient Code : </strong> {{ patient!.patient_code | uppercase }}</p>
+            </div>
+            <div class="consultation-information">
+                <p><strong>Patient Name : </strong>{{ patient!.first_name +" "+ patient!.last_name }}</p>
+            </div>
+            <div>
+                <hr>
+            </div>
+            <div class="btns" style="display: none;">
+                <button mat-raised-button color="primary" (click)="createConsultation()">Make</button>
+            </div>
+            <div class="txt">
+                <p><strong>#NB: </strong>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+        </div>
 
-<div id="print-section">
-    <h1>Print</h1>
+    </section>
+
+    <div class="section-2 mat-elevation-z8">
+        <form (ngSubmit)="onSubmit()" #patientCardForm="ngForm">
+
+            <div class="inputs" id="print-section">
+                <div class="inp">
+                    <div class="form-group">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Temperature</mat-label>
+                            <input matInput placeholder="Temperature" name="consultation_id"
+                                id="consultation_id" readonly="true" pattern="^[a-zA-Z0-9àéèç]{1,25}$"
+                                [(ngModel)]="patientCard.consultation_id" #consultation_id="ngModel">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="form-group">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Blood Pressure</mat-label>
+                            <input matInput placeholder="Blood Pressure" name="user_id" id="user_id"
+                                pattern="^[a-zA-Z0-9àéèç]{1,25}$" [(ngModel)]="patientCard.user_id" #user_id="ngModel">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="form-group">
+                        <mat-form-field appearance="outline">
+                            <mat-label></mat-label>
+                            <input matInput placeholder="Patient Id" name="patient_id" id="patient_id"
+                                pattern="^[a-zA-Z0-9àéèç]{1,25}$" [(ngModel)]="patientCard.patient_id"
+                                #patient_id="ngModel">
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="form-groupe">
+                    <textarea class="tinymce-editor" placeholder="Diagnostic"></textarea>
+                </div>
+            </div>
+
+            <div class="btn-section center">
+                <div>
+                    <button type="submit" mat-raised-button color="primary" class="waves-effect waves-light btn">
+                        Save
+                    </button>
+                </div>
+                <div class="print-btn">
+                    <button printSectionId="print-section" mat-raised-button color="g" ngxPrint styleSheetFile="./print-style.css">Print</button>
+                </div>
+                <div>
+                    <button type="reset" mat-raised-button color="warn" class="waves-effect waves-light btn">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+
+        </form>
+    </div>
 </div>
-<button printSectionId="print-section" ngxPrint >Print</button>

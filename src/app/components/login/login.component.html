@@ -1,55 +1,64 @@
-<div class="section">
-    <form (ngSubmit)="login()" #loginForm="ngForm">
-        <div class="row">
-            <div class="col">
-                <div class="card-panel mat-elevation-z8">
-                    <div class="form-header">
-                        <h1>Login</h1>
-                    </div>
-                    
-                    <div class="form-group">
-                        <mat-form-field appearance="outline" class="user_code">
-                            <mat-label>User code</mat-label>
-                            <input matInput placeholder="User code" required name="user_code" id="user_code"
-                                pattern="^[a-zA-Z0-9àéèç]{1,25}$" [(ngModel)]="loginModel.user_code" #user_code="ngModel">
-                            <mat-error [hidden]="user_code.valid">Enter user code!</mat-error>
-                        </mat-form-field>
-                    </div>
-                  
-                    <div class="form-group">
-                        <mat-form-field appearance="outline">
-                            <mat-label>Password</mat-label>
-                            <input matInput type="password" placeholder="Password" required name="password" id="password"
-                                [type]="hide ? 'password' : 'text'" [(ngModel)]="loginModel.password" #password="ngModel">
-                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                                [attr.aria-pressed]="hide">
-                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+<section>
+    <div class="section-1">
+        <form (ngSubmit)="login()" #loginForm="ngForm">
+            <div class="row">
+                <div class="col">
+                    <div class="card-panel mat-elevation-z8">
+                        <div class="form-header">
+                            <h1>Login</h1>
+                        </div>
+                        
+                        <div class="form-group">
+                            <mat-form-field appearance="outline" class="user_code">
+                                <mat-label>User code</mat-label>
+                                <input matInput placeholder="User code" required name="user_code" id="user_code"
+                                    pattern="^[a-zA-Z0-9àéèç]{1,25}$" [(ngModel)]="loginModel.user_code" #user_code="ngModel">
+                                <mat-error [hidden]="user_code.valid">Enter user code!</mat-error>
+                            </mat-form-field>
+                        </div>
+                      
+                        <div class="form-group">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Password</mat-label>
+                                <input matInput type="password" placeholder="Password" required name="password" id="password"
+                                    [type]="hide ? 'password' : 'text'" [(ngModel)]="loginModel.password" #password="ngModel">
+                                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                                    [attr.aria-pressed]="hide">
+                                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                                <mat-error [hidden]="password.valid">Enter Password!</mat-error>
+                            </mat-form-field>
+                        </div>
+    
+                        <div class="form-group">
+                            <a routerLink="/home"> Go back to home</a>
+                        </div>
+                        <div class="btn-section center">
+                            <button type="submit" mat-raised-button color="primary" class="waves-effect waves-light btn"
+                                [disabled]="!loginForm.form.valid">
+                                Login
                             </button>
-                            <mat-error [hidden]="password.valid">Enter Password!</mat-error>
-                        </mat-form-field>
-                    </div>
-
-                    <div class="form-group">
-                        <a routerLink="/home"> Go back to home</a>
-                    </div>
-                    <div class="btn-section center">
-                        <button type="submit" mat-raised-button color="primary" class="waves-effect waves-light btn"
-                            [disabled]="!loginForm.form.valid">
-                            Login
-                        </button>
+                        </div>
+                        <div>
+                            <p><strong>#NB: </strong>Login with your User Code and your password.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </form>
-
-    <!--<form [formGroup]="form" (submit)="submit()">
-        <h1 class="h3 mb-3 fw-normal">Plese sign in</h1>
-
-        <input formControlName="user_code" type="text" class="form-control" placeholder="User Code" required>
-
-        <input formControlName="password" type="password" class="form-control" placeholder="Password" required>
-
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-    </form>-->
-</div>
+        </form>
+    
+        <!--<form [formGroup]="form" (submit)="submit()">
+            <h1 class="h3 mb-3 fw-normal">Plese sign in</h1>
+    
+            <input formControlName="user_code" type="text" class="form-control" placeholder="User Code" required>
+    
+            <input formControlName="password" type="password" class="form-control" placeholder="Password" required>
+    
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+        </form>-->
+    </div>
+    
+    <div class="image">
+        <img src="../../../assets/imgs/svg/Authentication-rafiki.svg" alt="">
+    </div>
+</section>
