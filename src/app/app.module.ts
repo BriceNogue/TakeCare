@@ -69,6 +69,8 @@ import { CircularChartComponent } from './components/dashboard-module/circular-c
 import { AddPrescriptionComponent } from './components/prescription-module/add-prescription/add-prescription.component';
 import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
 import { ScrollDirective } from './directives/scroll.directive';
+import { AddExaminationComponent } from './components/examination-module/add-examination/add-examination.component';
+import { ExaminationListComponent } from './components/examination-module/examination-list/examination-list.component';
 
 @NgModule({
   declarations: [
@@ -110,6 +112,8 @@ import { ScrollDirective } from './directives/scroll.directive';
     CircularChartComponent,
     AddPrescriptionComponent,
     ScrollDirective,
+    AddExaminationComponent,
+    ExaminationListComponent,
   ],
   imports: [
     BrowserModule,

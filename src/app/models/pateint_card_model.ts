@@ -3,7 +3,7 @@ export class PatientCardModel {
     patient_card_code: string;
     patient_card_date: string;
     user_id: string;
-    consultation_id: string;
+    //consultation_id: string;
     temperature: string;
     blood_pressure: string;
     weight: string;
@@ -24,7 +24,7 @@ export class PatientCardModel {
         patient_id: string = ""
 
     ) {
-        this.consultation_id = consultation_id;
+        //this.consultation_id = consultation_id;
         this.consultation_details = consultation_details;
         this.temperature = temperature;
         this.blood_pressure = blood_pressure;

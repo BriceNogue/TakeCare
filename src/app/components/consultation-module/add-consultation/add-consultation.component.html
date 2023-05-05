@@ -31,6 +31,9 @@
             <div class="btns" style="display: none;">
                 <button mat-raised-button color="primary" (click)="createConsultation()">Make</button>
             </div>
+            <div class="advise">
+
+            </div>
             <div class="txt">
                 <p><strong>#NB: </strong>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             </div>
@@ -46,37 +49,67 @@
                     <div class="form-group">
                         <mat-label>Temperature *</mat-label>
                         <input matInput placeholder="37&deg;C" required #temperature="ngModel"
+                        name="temperature"
                             [(ngModel)]="patientCard.temperature" class="form-control">
                     </div>
 
                     <div class="form-group">
                         <mat-label>Blood Pressure *</mat-label>
-                        <input matInput placeholder="115/75 mmHg" required #blood_pressure="ngModel"
+                        <input matInput placeholder="115/75 mm Hg" required #blood_pressure="ngModel"
+                        name="blood_pressure"
                             [(ngModel)]="patientCard.blood_pressure" class="form-control">
                     </div>
 
                     <div class="form-group">
                         <mat-label>Size</mat-label>
-                        <input matInput placeholder="1m70" #size="ngModel" [(ngModel)]="patientCard.size"
+                        <input matInput placeholder="1.70 m" #size="ngModel" [(ngModel)]="patientCard.size"
+                        name="size"
                             class="form-control">
                     </div>
 
                     <div class="form-group">
                         <mat-label>Weight</mat-label>
                         <input placeholder="65 kg" #weight="ngModel" [(ngModel)]="patientCard.weight"
+                        name="weight"
                             class="form-control">
+                    </div>
+
+                    <div class="form-groupe">
+                        <button mat-raised-button >
+                            <mat-icon>bloodtype</mat-icon>
+                            Examination
+                        </button>
+                    </div>
+
+                    <div class="form-groupe">
+                        <button mat-raised-button >
+                            (click)="openDialog()"
+                            <mat-icon>medication</mat-icon>
+                            Prescription
+                        </button>
+                    </div>
+
+                    <div class="form-groupe">
+                        <button mat-raised-button >
+                            <mat-icon>folder_open</mat-icon>
+                            Medical File
+                        </button>
                     </div>
                 </div>
 
                 <div class="form-groupe">
-                    <textarea class="tinymce-editor" placeholder="Diagnostic"></textarea>
+                    <textarea class="tinymce-editor" placeholder="Diagnostic" #diagnostic="ngModel"
+                       [(ngModel)]="patientCard.consultation_details"
+                       name="diagnostic">
+                    </textarea>
                 </div>
 
             </div>
 
             <div class="btn-section center">
                 <div>
-                    <button type="submit" mat-raised-button color="primary" class="waves-effect waves-light btn">
+                    <button type="submit" mat-raised-button color="primary" class="waves-effect waves-light btn"
+                     [disabled]="!patientCardForm.form.valid">
                         Save
                     </button>
                 </div>

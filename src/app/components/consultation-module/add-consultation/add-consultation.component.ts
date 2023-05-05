@@ -11,6 +11,9 @@ import { PatientCardService } from 'src/app/services/patient-card.service';
 import { PatientService } from 'src/app/services/patient.service';
 import { UserService } from 'src/app/services/user-service.service';
 
+import { AddExaminationComponent } from '../../examination-module/add-examination/add-examination.component';
+import { MatDialog } from '@angular/material/dialog';
+
 @Component({
   selector: 'app-add-consultation',
   templateUrl: './add-consultation.component.html',
@@ -55,7 +58,7 @@ export class AddConsultationComponent implements OnInit {
             this.appointment.service_id,
             this.appointment.user_id
           );
- 
+
           this.userService.getUserById(this.appointment.user_id).subscribe((user) => {
             this.user = user;
             this.patientCard.user_id = user!._id;
@@ -65,7 +68,7 @@ export class AddConsultationComponent implements OnInit {
             this.patient = patient;
             this.patientCard.patient_id = patient._id;
           })
-          
+
         }
 
       });
@@ -88,7 +91,8 @@ export class AddConsultationComponent implements OnInit {
   }
 
   onSubmit() {
-
+    this.patientCardService.addPatientCard(this.patientCard).subscribe((res) => {
+    })
   }
 
 

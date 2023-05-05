@@ -12,8 +12,8 @@ section {
 }
 
 .section-2 {
-    width: 50%;
-    max-width: 550px;
+    width: 60%;
+    //max-width: 650px;
     padding: 16px;
     border-radius: 5px;
     border-top-width: 10px;
@@ -42,7 +42,7 @@ mat-label {
 }
 
 textarea {
-    width: 300px;
+    width: 457px;
     height: 430px;
     background: #222f3e;
     color: white;
@@ -55,9 +55,17 @@ textarea {
 .btn-section {
     display: flex;
     justify-content: space-between;
-    padding: 50px 0 0 0;
+    padding: 35px 0 0 0;
 
     button {
-        width: 150px;
+        width: 208px;
+    }
+}
+
+.form-groupe {
+    button {
+        width: 208px;
+        margin-bottom: 16px;
+        color: #002d80;
     }
 }
