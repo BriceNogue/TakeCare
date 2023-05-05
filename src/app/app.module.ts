@@ -139,8 +139,8 @@ import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
     TimelineViewsService,
     TimelineMonthService,
 
-    //UserService,
-    AuthInterceptorProvider
+    AuthInterceptorProvider,
+    UserService,
     //AuthService,
   ],
   bootstrap: [AppComponent]

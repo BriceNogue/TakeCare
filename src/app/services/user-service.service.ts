@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import { catchError, Observable, of, tap } from 'rxjs';
 import { UserModel } from '../models/user-model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class UserService {
 
   API_URL_USER: string = "http://127.0.0.1:9000/api/"

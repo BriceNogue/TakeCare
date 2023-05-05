@@ -9,7 +9,7 @@ import { UserModel } from '../models/user-model';
 })
 export class AuthService {
 
-  private readonly API_URL_LOGIN: string = "http://127.0.0.1:9000/api";
+  API_URL_LOGIN: string = "http://127.0.0.1:9000/api";
   private readonly TOKEN_NAME = 'take_care_auth';
 
   private _isLoggedIn$ = new BehaviorSubject<boolean>(false);
@@ -36,7 +36,7 @@ export class AuthService {
     return this.http.post<LoginModel>(this.API_URL_LOGIN + "/login", loginModel, { withCredentials: true }).pipe(
       tap((res: any) => {
         this.log(res);
-        localStorage.setItem(this.TOKEN_NAME, res.token);
+        localStorage.setItem(this.TOKEN_NAME, res.token!);
         this._isLoggedIn$.next(true);
       }
       ),
