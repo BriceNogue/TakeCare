@@ -7,6 +7,7 @@ import { PatientModel } from 'src/app/models/patient-model';
 import { UserModel } from 'src/app/models/user-model';
 import { AppointmentService } from 'src/app/services/appointment.service';
 import { ConsultationService } from 'src/app/services/consultation.service';
+import { PatientCardService } from 'src/app/services/patient-card.service';
 import { PatientService } from 'src/app/services/patient.service';
 import { UserService } from 'src/app/services/user-service.service';
 
@@ -34,7 +35,8 @@ export class AddConsultationComponent implements OnInit {
     private consultationService: ConsultationService,
     private appointmentService: AppointmentService,
     private userService: UserService,
-    private patientService: PatientService
+    private patientService: PatientService,
+    private patientCardService: PatientCardService
   ) { }
 
   ngOnInit(): void {
@@ -53,12 +55,17 @@ export class AddConsultationComponent implements OnInit {
             this.appointment.service_id,
             this.appointment.user_id
           );
+ 
+          this.userService.getUserById(this.appointment.user_id).subscribe((user) => {
+            this.user = user;
+            this.patientCard.user_id = user!._id;
+          });
 
+          this.patientService.getPatientById(this.appointment.patient_id).subscribe((patient) => {
+            this.patient = patient;
+            this.patientCard.patient_id = patient._id;
+          })
           
-          this.userService.getUserById(this.appointment.user_id).subscribe((user) =>
-          this.user = user);
-          this.patientService.getPatientById(this.appointment.patient_id).subscribe((patient) => 
-          this.patient = patient)
         }
 
       });
