@@ -67,6 +67,7 @@ import { EditConsultationComponent } from './components/consultation-module/edit
 import { ConsultatioDetailsnComponent } from './components/consultation-module/consultatio-detailsn/consultatio-detailsn.component';
 import { CircularChartComponent } from './components/dashboard-module/circular-chart/circular-chart.component';
 import { AddPrescriptionComponent } from './components/prescription-module/add-prescription/add-prescription.component';
+import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -138,7 +139,8 @@ import { AddPrescriptionComponent } from './components/prescription-module/add-p
     TimelineViewsService,
     TimelineMonthService,
 
-    UserService,
+    //UserService,
+    AuthInterceptorProvider
     //AuthService,
   ],
   bootstrap: [AppComponent]
