@@ -1,7 +1,7 @@
-<mat-sidenav-container >
-  <mat-sidenav #sidenav mode="side" [(opened)]="opened" *ngIf="authService.isLoggedIn$ | async" >
+<mat-drawer-container autosize>
+  <mat-drawer #drawer mode="side" [(opened)]="opened" *ngIf="authService.isLoggedIn$ | async">
     <div class="user-info">
-      <div class="user-profil" >
+      <div class="user-profil">
         <img src="../assets/imgs/svg/Authentication-rafiki.svg" alt="">
       </div>
       <div class="user-name">
@@ -93,9 +93,10 @@
         </div>
       </li>
     </ul>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <mat-toolbar class="nav-bar" >
       <mat-toolbar-row>
         <div class="logo">
           <div>
@@ -103,7 +104,7 @@
               <img src="../assets/imgs/svg/Authentication-rafiki.svg" alt="">
             </a>
           </div>
-          <div *ngIf="isLoggedIn">
+          <div>
             <button class="side-btn" (click)="opened=!opened">
               <i class="bi bi-menu-button-wide"></i>
             </button>
@@ -133,5 +134,5 @@
     <div class="router-outlet">
       <router-outlet></router-outlet>
     </div>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+  </div>
+</mat-drawer-container>

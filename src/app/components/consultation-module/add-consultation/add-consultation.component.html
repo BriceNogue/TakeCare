@@ -44,35 +44,34 @@
             <div class="inputs" id="print-section">
                 <div class="inp">
                     <div class="form-group">
-                        <mat-form-field appearance="outline">
-                            <mat-label>Temperature</mat-label>
-                            <input matInput placeholder="Temperature" name="consultation_id"
-                                id="consultation_id" readonly="true" pattern="^[a-zA-Z0-9àéèç]{1,25}$"
-                                [(ngModel)]="patientCard.consultation_id" #consultation_id="ngModel">
-                        </mat-form-field>
+                        <mat-label>Temperature *</mat-label>
+                        <input matInput placeholder="37&deg;C" required #temperature="ngModel"
+                            [(ngModel)]="patientCard.temperature" class="form-control">
                     </div>
 
                     <div class="form-group">
-                        <mat-form-field appearance="outline">
-                            <mat-label>Blood Pressure</mat-label>
-                            <input matInput placeholder="Blood Pressure" name="user_id" id="user_id"
-                                pattern="^[a-zA-Z0-9àéèç]{1,25}$" [(ngModel)]="patientCard.user_id" #user_id="ngModel">
-                        </mat-form-field>
+                        <mat-label>Blood Pressure *</mat-label>
+                        <input matInput placeholder="115/75 mmHg" required #blood_pressure="ngModel"
+                            [(ngModel)]="patientCard.blood_pressure" class="form-control">
                     </div>
 
                     <div class="form-group">
-                        <mat-form-field appearance="outline">
-                            <mat-label></mat-label>
-                            <input matInput placeholder="Patient Id" name="patient_id" id="patient_id"
-                                pattern="^[a-zA-Z0-9àéèç]{1,25}$" [(ngModel)]="patientCard.patient_id"
-                                #patient_id="ngModel">
-                        </mat-form-field>
+                        <mat-label>Size</mat-label>
+                        <input matInput placeholder="1m70" #size="ngModel" [(ngModel)]="patientCard.size"
+                            class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <mat-label>Weight</mat-label>
+                        <input placeholder="65 kg" #weight="ngModel" [(ngModel)]="patientCard.weight"
+                            class="form-control">
                     </div>
                 </div>
 
                 <div class="form-groupe">
                     <textarea class="tinymce-editor" placeholder="Diagnostic"></textarea>
                 </div>
+
             </div>
 
             <div class="btn-section center">
@@ -82,7 +81,8 @@
                     </button>
                 </div>
                 <div class="print-btn">
-                    <button printSectionId="print-section" mat-raised-button color="g" ngxPrint styleSheetFile="./print-style.css">Print</button>
+                    <button printSectionId="print-section" mat-raised-button color="g" ngxPrint
+                        styleSheetFile="./print-style.css">Print</button>
                 </div>
                 <div>
                     <button type="reset" mat-raised-button color="warn" class="waves-effect waves-light btn">

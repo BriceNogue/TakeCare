@@ -3,6 +3,8 @@
     background-color: white;
     padding: 16px;
     border-radius: 5px;
+    min-height: 550px;
+    max-height: 550px;
 }
 
 section {
@@ -11,14 +13,18 @@ section {
 
 .section-2 {
     width: 50%;
+    max-width: 550px;
     padding: 16px;
     border-radius: 5px;
+    border-top-width: 10px;
+    min-height: 550px;
+    max-height: 550px;
 }
 
 .sections {
     display: flex;
     justify-content: space-around;
-    width: 80%;
+    width: 100%;
 }
 
 .inputs {
@@ -26,9 +32,18 @@ section {
     justify-content: space-between;
 }
 
+input {
+    margin-bottom: 16px;
+}
+
+mat-label {
+    font-size: 12px;
+    font-weight: bold;
+}
+
 textarea {
     width: 300px;
-    height: 500px;
+    height: 430px;
     background: #222f3e;
     color: white;
     resize: none;
@@ -40,7 +55,7 @@ textarea {
 .btn-section {
     display: flex;
     justify-content: space-between;
-    padding: 16px 0 0 0;
+    padding: 50px 0 0 0;
 
     button {
         width: 150px;

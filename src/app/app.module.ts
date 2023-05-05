@@ -68,6 +68,7 @@ import { ConsultatioDetailsnComponent } from './components/consultation-module/c
 import { CircularChartComponent } from './components/dashboard-module/circular-chart/circular-chart.component';
 import { AddPrescriptionComponent } from './components/prescription-module/add-prescription/add-prescription.component';
 import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
+import { ScrollDirective } from './directives/scroll.directive';
 
 @NgModule({
   declarations: [
@@ -108,6 +109,7 @@ import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
     ConsultatioDetailsnComponent,
     CircularChartComponent,
     AddPrescriptionComponent,
+    ScrollDirective,
   ],
   imports: [
     BrowserModule,
