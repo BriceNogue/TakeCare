@@ -64,7 +64,7 @@
                     <div class="form-group">
                         <mat-form-field appearance="outline">
                             <mat-label>Services</mat-label>
-                            <mat-select required name="service" id="service" [(ngModel)]="user.service" #service="ngModel">
+                            <mat-select required name="service" id="service" [(ngModel)]="user.service_id" #service="ngModel">
                                 <mat-option></mat-option>
                                 <mat-option *ngFor="let service of services" [value]="service._id">
                                     {{service.libelle}}

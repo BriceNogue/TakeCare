@@ -15,12 +15,15 @@ export class AuthService {
   private _isLoggedIn$ = new BehaviorSubject<boolean>(false);
   isLoggedIn$ = this._isLoggedIn$.asObservable();
 
+  user: UserModel;
+
   get token() {
     return localStorage.getItem(this.TOKEN_NAME);
   }
 
   constructor(private http: HttpClient) {
     this._isLoggedIn$.next(!!this.token);
+   
   }
 
   private log(response: any) {
@@ -36,12 +39,29 @@ export class AuthService {
     return this.http.post<LoginModel>(this.API_URL_LOGIN + "/login", loginModel, { withCredentials: true }).pipe(
       tap((res: any) => {
         this.log(res);
-        localStorage.setItem(this.TOKEN_NAME, res.token!);
         this._isLoggedIn$.next(true);
+        localStorage.setItem(this.TOKEN_NAME, res.token);
+        this.getUser(res.token).subscribe();
       }
       ),
       catchError((error) => this.handleError(error, null))
     );
+  }
+
+  getUser(token: string): Observable<UserModel> {
+    const headers = {
+      headers: new HttpHeaders(token)
+    };
+
+    return this.http.get<UserModel>(this.API_URL_LOGIN + "/user", headers).pipe(
+      tap((user) => {
+        this.log("+++++++++++++++++++++++++++++++++=");
+        //this.log(user);
+        this.user = user;
+        this.log(this.user);
+      }),
+      catchError((error) => this.handleError(error, null))
+    )
   }
 
   /*login(): Observable<UserModel> {
@@ -58,7 +78,7 @@ export class AuthService {
     return this.http.post(this.API_URL_LOGIN + "/logout", {}, { withCredentials: true }).pipe(
       tap((res) => {
         this.log(res);
-        //this.isLoggedIn = false;
+        localStorage.removeItem(this.TOKEN_NAME);
       }),
       catchError((error) => this.handleError(error, null))
     );

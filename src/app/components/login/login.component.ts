@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
     this.messsage = "Connection...";
     this.auth.login(this.loginModel)
       .subscribe((res) => {
-        console.log(res.token);
+        console.log(res);
         
         this.router.navigate(['/home'])
         

@@ -4,7 +4,8 @@ export class UserModel {
     public first_name: string;
     public last_name: string;
     public address: string;
-    public service: string;
+    public service_id: string;
+    public role: string;
     public phone?: string;
     public picture?: string;
     public password: string;
@@ -14,7 +15,8 @@ export class UserModel {
         first_name: string = '',
         last_name: string = '',
         address: string = '',
-        service: string = '',
+        service_id: string = '',
+        role: string = '',
         phone: string = '',
         picture: string = '',
         password: string = ''
@@ -23,7 +25,8 @@ export class UserModel {
         this.first_name = first_name;
         this.last_name = last_name;
         this.address = address;
-        this.service = service;
+        this.service_id = service_id;
+        this.role = role;
         this.phone = phone;
         this.picture = picture;
         this.password = password;

@@ -7,7 +7,7 @@ import {
   HTTP_INTERCEPTORS,
   HttpErrorResponse
 } from '@angular/common/http';
-import { catchError, Observable, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
 import { AuthService } from '../services/auth.service';
 
 @Injectable()
@@ -21,8 +21,10 @@ export class AuthInterceptor implements HttpInterceptor {
       request = request.clone({
         headers: request.headers.set('authorization', `Bearer ${this.authService.token}`),
       })
+      console.log(request);
     return next.handle(request)
   }
+
 
   /*intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
@@ -32,8 +34,7 @@ export class AuthInterceptor implements HttpInterceptor {
     }
 
     return next.handle(request)
-  }*/
-
+  }
 
   private addToken(request: HttpRequest<any>, token: string) {
     return request.clone({
@@ -41,11 +42,8 @@ export class AuthInterceptor implements HttpInterceptor {
         'Authorization' : `Bearer ${token}`
       }
     });
-  }
+  }*/
 
-  private handle401Error(request: HttpRequest<any>, next: HttpHandler) {
-    console.error(request.responseType);
-  }
 }
 
 export const AuthInterceptorProvider = {

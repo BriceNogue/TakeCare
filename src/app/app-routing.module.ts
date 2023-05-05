@@ -26,17 +26,38 @@ import { AddUserComponent } from './components/user-module/add-user/add-user.com
 import { DetailUserComponent } from './components/user-module/detail-user/detail-user.component';
 import { EditUserComponent } from './components/user-module/edit-user/edit-user.component';
 import { UserListComponent } from './components/user-module/user-list/user-list.component';
+import { RoleGuard } from './guards/role.guard';
 
 const routes: Routes = [
   { path: "home", component: HomeComponent },
-  { path: "dashboard", component: DashboardComponent, canActivate: [AuthGuard] },
-  { path: "add_user", component: AddUserComponent, canActivate: [AuthGuard] },
-  { path: "users", component: UserListComponent, canActivate: [AuthGuard] },
-  { path: "user/:id", component: EditUserComponent, canActivate: [AuthGuard] },
+  {
+    path: "dashboard", component: DashboardComponent, canActivate: [AuthGuard, RoleGuard],
+    data: {
+      role: 'Admin',
+    }
+  },
+  {
+    path: "add_user", component: AddUserComponent, canActivate: [AuthGuard, RoleGuard],
+    data: {
+      role: 'Admin',
+    }
+  },
+  {
+    path: "users", component: UserListComponent, canActivate: [AuthGuard, RoleGuard],
+    data: {
+      role: 'Admin',
+    }
+  },
+  {
+    path: "user/:id", component: EditUserComponent, canActivate: [AuthGuard, RoleGuard],
+    data: {
+      role: 'Admin',
+    }
+  },
   { path: "users/:id", component: DetailUserComponent, canActivate: [AuthGuard] },
   { path: "patients", component: PatientsListComponent, canActivate: [AuthGuard] },
   { path: "add_patient", component: AddPatientComponent, canActivate: [AuthGuard] },
-  { path: "patients/:id", component: DetailPatientComponent, canActivate: [AuthGuard]}, 
+  { path: "patients/:id", component: DetailPatientComponent, canActivate: [AuthGuard] },
   { path: "patient/:id", component: EditPatientComponent, canActivate: [AuthGuard] },
 
   { path: "consultations", component: ConsultationComponent, canActivate: [AuthGuard] },
@@ -51,12 +72,22 @@ const routes: Routes = [
   { path: "appointment_details/:id", component: AppointmentDetailsComponent },
 
   { path: "payments", component: PaymentComponent, canActivate: [AuthGuard] },
-  { path: "services", component: ServiceListComponent, canActivate: [AuthGuard] },
-  { path: "services/:id", component: DetailServiceComponent, canActivate: [AuthGuard] },
-  { path: "service/:id", component: EditServiceComponent, canActivate: [AuthGuard] },
+  {
+    path: "services", component: ServiceListComponent, canActivate: [AuthGuard, RoleGuard],
+    data: {
+      role: 'Admin',
+    }
+  },
+  { path: "services/:id", component: DetailServiceComponent, canActivate: [AuthGuard, RoleGuard] },
+  {
+    path: "service/:id", component: EditServiceComponent, canActivate: [AuthGuard, RoleGuard],
+    data: {
+      role: 'Admin',
+    }
+  },
   { path: "login", component: LoginComponent },
 
-  { path: "", redirectTo: "login", pathMatch: "full" },
+  { path: "", redirectTo: "home", pathMatch: "full" },
   { path: "**", component: NotFoundComponent }
 ];
 
