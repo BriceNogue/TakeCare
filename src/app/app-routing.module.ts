@@ -17,7 +17,7 @@ import { AddPatientComponent } from './components/patient-module/add-patient/add
 import { DetailPatientComponent } from './components/patient-module/detail-patient/detail-patient.component';
 import { EditPatientComponent } from './components/patient-module/edit-patient/edit-patient.component';
 import { PatientsListComponent } from './components/patient-module/patients-list/patients-list.component';
-import { PaymentComponent } from './components/payment/payment.component';
+import { PaymentComponent } from './components/payment-module/payment/payment.component';
 import { PrescriptionComponent } from './components/prescription-module/prescription/prescription.component';
 import { DetailServiceComponent } from './components/service-module/detail-service/detail-service.component';
 import { EditServiceComponent } from './components/service-module/edit-service/edit-service.component';

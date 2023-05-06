@@ -29,7 +29,7 @@ import { PatientFormComponent } from './components/patient-module/patient-form/p
 import { AppointmentComponent } from './components/appointment-module/appointment/appointment.component';
 import { ConsultationComponent } from './components/consultation-module/consultation/consultation.component';
 import { PrescriptionComponent } from './components/prescription-module/prescription/prescription.component';
-import { PaymentComponent } from './components/payment/payment.component';
+import { PaymentComponent } from './components/payment-module/payment/payment.component';
 import { DashboardComponent } from './components/dashboard-module/dashboard/dashboard.component';
 import { ScheduleModule,
          RecurrenceEditorModule, 
@@ -71,6 +71,7 @@ import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
 import { ScrollDirective } from './directives/scroll.directive';
 import { AddExaminationComponent } from './components/examination-module/add-examination/add-examination.component';
 import { ExaminationListComponent } from './components/examination-module/examination-list/examination-list.component';
+import { AddPaymentComponent } from './components/payment-module/add-payment/add-payment.component';
 
 @NgModule({
   declarations: [
@@ -114,6 +115,7 @@ import { ExaminationListComponent } from './components/examination-module/examin
     ScrollDirective,
     AddExaminationComponent,
     ExaminationListComponent,
+    AddPaymentComponent,
   ],
   imports: [
     BrowserModule,

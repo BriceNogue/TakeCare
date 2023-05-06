@@ -32,6 +32,8 @@ export class AddConsultationComponent implements OnInit {
 
   patientCard: PatientCardModel = new PatientCardModel;
 
+  received_data: any;
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -39,7 +41,9 @@ export class AddConsultationComponent implements OnInit {
     private appointmentService: AppointmentService,
     private userService: UserService,
     private patientService: PatientService,
-    private patientCardService: PatientCardService
+    private patientCardService: PatientCardService,
+
+    private dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -93,6 +97,25 @@ export class AddConsultationComponent implements OnInit {
   onSubmit() {
     this.patientCardService.addPatientCard(this.patientCard).subscribe((res) => {
     })
+  }
+
+  openDialog() {
+
+    let dialogRef = this.dialog.open(AddExaminationComponent, {
+      width:' 350px',
+      disableClose: true,
+      data: 'Are yous sure you want to delet ?',
+    })
+
+    dialogRef.afterClosed().subscribe(res => {
+      this.received_data = res.data;
+    })
+
+    /*this.dialog.open(AddExaminationComponent, {
+      width:' 350px',
+      disableClose: true
+    })*/
+
   }
 
 

@@ -42,7 +42,7 @@
     </section>
 
     <div class="section-2 mat-elevation-z8">
-        <form (ngSubmit)="onSubmit()" #patientCardForm="ngForm">
+        <form #patientCardForm="ngForm">
 
             <div class="inputs" id="print-section">
                 <div class="inp">
@@ -75,7 +75,7 @@
                     </div>
 
                     <div class="form-groupe">
-                        <button mat-raised-button >
+                        <button mat-raised-button (click)="openDialog()" >
                             <mat-icon>bloodtype</mat-icon>
                             Examination
                         </button>
@@ -83,7 +83,6 @@
 
                     <div class="form-groupe">
                         <button mat-raised-button >
-                            (click)="openDialog()"
                             <mat-icon>medication</mat-icon>
                             Prescription
                         </button>
@@ -108,8 +107,10 @@
 
             <div class="btn-section center">
                 <div>
-                    <button type="submit" mat-raised-button color="primary" class="waves-effect waves-light btn"
-                     [disabled]="!patientCardForm.form.valid">
+                    <button type="submit" mat-raised-button color="primary" 
+                    class="waves-effect waves-light btn"
+                    (click)="onSubmit()"
+                    [disabled]="!patientCardForm.form.valid">
                         Save
                     </button>
                 </div>
