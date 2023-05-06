@@ -111,7 +111,7 @@
           </div>
         </div>
         <div class="tools">
-          <div *ngIf="isLoggedIn">
+          <div *ngIf="authService.isLoggedIn$ | async">
             <span class="tb-span">
               <i class="bi bi-bell"></i>
             </span>
@@ -123,7 +123,7 @@
             </span>
           </div>
 
-          <div *ngIf="!isLoggedIn">
+          <div *ngIf="authService.isLoggedIn$ | async">
             <button mat-raised-button color="primary" class="btn-login" (click)="login()">
               Login
             </button>
