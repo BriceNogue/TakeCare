@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { async } from 'rxjs';
 import { UserModel } from './models/user-model';
 import { AuthService } from './services/auth.service';
 
@@ -35,7 +36,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   logout() {
     this.authService.logout().subscribe(() =>
       this.isLoggedIn = true,
-      this.router.navigate(['/home'])
+      this.router.navigate(['/login'])
     );
   }
 }

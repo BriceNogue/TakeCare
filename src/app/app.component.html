@@ -96,7 +96,7 @@
   </mat-drawer>
 
   <div class="example-sidenav-content">
-    <mat-toolbar class="nav-bar" >
+    <mat-toolbar class="nav-bar" *ngIf="authService.isLoggedIn$ | async">
       <mat-toolbar-row>
         <div class="logo">
           <div>
@@ -111,7 +111,7 @@
           </div>
         </div>
         <div class="tools">
-          <div *ngIf="authService.isLoggedIn$ | async">
+          <div>
             <span class="tb-span">
               <i class="bi bi-bell"></i>
             </span>
@@ -123,7 +123,7 @@
             </span>
           </div>
 
-          <div *ngIf="authService.isLoggedIn$ | async">
+          <div style="display: none;">
             <button mat-raised-button color="primary" class="btn-login" (click)="login()">
               Login
             </button>

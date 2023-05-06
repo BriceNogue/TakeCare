@@ -47,4 +47,16 @@ export class UserFormComponent implements OnInit {
     }
   }
 
+  roles = [
+    {
+      role:"Admin"
+    },
+    {
+      role:"General"
+    },
+    {
+      role:"Infirm"
+    }
+  ]
+
 }
