@@ -1,0 +1,97 @@
+tr {
+    //display: flex;
+    //justify-content: space-around;
+}
+
+.table-header {
+    display: flex;
+    justify-content: center;
+}
+
+.h1-div {
+    padding: 16px;
+    margin: none;
+    background: #3f51b5;
+    width: 90%;
+    border-radius: 5px;
+    position: relative;
+    top: -40px;
+    color: white;
+    text-transform: uppercase;
+}
+
+.sec-1 {
+    width: 100%;
+    padding: 0 16px 0 16px;
+}
+
+.mat-form-field {
+    width: 100%;
+}
+
+th {
+    color: black;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
+td {
+    max-width: 150px;
+    overflow: hidden;
+    padding: 0 0 10px 0;
+    text-align: left;
+}
+
+.appointment-table {
+    width: 80%;
+    border-radius: 5px;
+    padding: 16px;
+}
+
+table {
+    max-height: 100px;
+}
+
+.tab {
+    border: 1px solid #EEE;
+    border-radius: 5px;
+}
+
+tr:hover {
+    background: #adb7f5;
+    color: white;
+}
+
+.actions-btns {
+    display: flex;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+}
+
+section {
+    background: transparent;
+}
+
+.sec-2 {
+    width: 1100px;
+}
+
+table {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+th {
+    font-weight: bold;
+    font-size: 16px;
+    //background: #3f51b5;
+}
+
+.selecte-row:hover {
+    border-color: black;
+}
