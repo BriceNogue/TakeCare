@@ -72,6 +72,7 @@ import { ScrollDirective } from './directives/scroll.directive';
 import { AddExaminationComponent } from './components/examination-module/add-examination/add-examination.component';
 import { ExaminationListComponent } from './components/examination-module/examination-list/examination-list.component';
 import { AddPaymentComponent } from './components/payment-module/add-payment/add-payment.component';
+import { PaymentListComponent } from './components/payment-module/payment-list/payment-list.component';
 
 @NgModule({
   declarations: [
@@ -116,6 +117,7 @@ import { AddPaymentComponent } from './components/payment-module/add-payment/add
     AddExaminationComponent,
     ExaminationListComponent,
     AddPaymentComponent,
+    PaymentListComponent,
   ],
   imports: [
     BrowserModule,

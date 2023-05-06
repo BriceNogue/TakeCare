@@ -1,71 +1,73 @@
 <section>
-  <div class="sec-1">
-    <div>
-      <mat-form-field appearance="outline">
-        <mat-label>Search</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Searsh" #input class="searsh">
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint>Users {{nbr_users}}</mat-hint>
-      </mat-form-field>
+  <div class="tab mat-elevation-z8">
+    <div class="sec-1">
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Search</mat-label>
+          <input matInput (keyup)="applyFilter($event)" placeholder="Searsh" #input class="searsh">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-hint>Users {{nbr_users}}</mat-hint>
+        </mat-form-field>
+      </div>
+      <div>
+        <button mat-raised-button color="primary" class="add-patient" (click)="goToAddUser()">
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
     </div>
-    <div>
-      <button mat-raised-button color="primary" class="add-patient" (click)="goToAddUser()">
-        <mat-icon>add</mat-icon>
-      </button>
-    </div>
-  </div>
 
-  <div class="sec-2 mat-elevation-z8">
-    <table mat-table [dataSource]="users" matSort>
-      <!-- user_code -->
-      <ng-container matColumnDef="user_code">
-        <th mat-header-cell *matHeaderCellDef> Code </th>
-        <td mat-cell *matCellDef="let user"> {{user.user_code}} </td>
-      </ng-container>
+    <div class="sec-2">
+      <table mat-table [dataSource]="users" matSort>
+        <!-- user_code -->
+        <ng-container matColumnDef="user_code">
+          <th mat-header-cell *matHeaderCellDef> Code </th>
+          <td mat-cell *matCellDef="let user"> {{user.user_code}} </td>
+        </ng-container>
 
-      <!-- first_name -->
-      <ng-container matColumnDef="first_name">
-        <th mat-header-cell *matHeaderCellDef> First Name </th>
-        <td mat-cell *matCellDef="let user"> {{user.first_name}} </td>
-      </ng-container>
+        <!-- first_name -->
+        <ng-container matColumnDef="first_name">
+          <th mat-header-cell *matHeaderCellDef> First Name </th>
+          <td mat-cell *matCellDef="let user"> {{user.first_name}} </td>
+        </ng-container>
 
-      <!-- first_name -->
-      <ng-container matColumnDef="last_name">
-        <th mat-header-cell *matHeaderCellDef> Last Name </th>
-        <td mat-cell *matCellDef="let user"> {{user.last_name}} </td>
-      </ng-container>
+        <!-- first_name -->
+        <ng-container matColumnDef="last_name">
+          <th mat-header-cell *matHeaderCellDef> Last Name </th>
+          <td mat-cell *matCellDef="let user"> {{user.last_name}} </td>
+        </ng-container>
 
-      <!-- Address -->
-      <ng-container matColumnDef="address">
-        <th mat-header-cell *matHeaderCellDef> Address </th>
-        <td mat-cell *matCellDef="let user"> {{user.address}} </td>
-      </ng-container>
+        <!-- Address -->
+        <ng-container matColumnDef="address">
+          <th mat-header-cell *matHeaderCellDef> Address </th>
+          <td mat-cell *matCellDef="let user"> {{user.address}} </td>
+        </ng-container>
 
-      <!-- service -->
-      <ng-container matColumnDef="service">
-        <th mat-header-cell *matHeaderCellDef> Service </th>
-        <td mat-cell *matCellDef="let user"> {{user.service}} </td>
-      </ng-container>
+        <!-- service -->
+        <ng-container matColumnDef="service">
+          <th mat-header-cell *matHeaderCellDef> Service </th>
+          <td mat-cell *matCellDef="let user"> {{user.service}} </td>
+        </ng-container>
 
-      <!-- actions -->
-      <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef> Actions </th>
-        <td mat-cell *matCellDef="let user">
-          <div class="actions-btn">
+        <!-- actions -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
+          <td mat-cell *matCellDef="let user">
+            <div class="actions-btn">
 
-          </div>
-        </td>
-      </ng-container>
+            </div>
+          </td>
+        </ng-container>
 
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row (click)="goToUserDetail(user._id)" *matRowDef="let user;
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row (click)="goToUserDetail(user._id)" *matRowDef="let user;
         columns: displayedColumns;">
-      </tr>
-    </table>
+        </tr>
+      </table>
 
-    <mat-paginator [length]="7" [pageSize]="7" [pageSizeOptions]="[5, 7]" aria-label="Select page">
-    </mat-paginator>
+      <mat-paginator [length]="7" [pageSize]="7" [pageSizeOptions]="[5, 7]" aria-label="Select page">
+      </mat-paginator>
 
+    </div>
   </div>
 </section>

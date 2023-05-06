@@ -93,4 +93,8 @@ export class AppointmentFormComponent implements OnInit, AfterViewInit {
     }
   }
 
+  goToAppointments() {
+    this.router.navigate(['/appointments'])
+  }
+
 }

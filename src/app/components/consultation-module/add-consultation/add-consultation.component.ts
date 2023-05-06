@@ -94,6 +94,10 @@ export class AddConsultationComponent implements OnInit {
     }
   }
 
+  goToAppointment() {
+    this.router.navigate(['/appointments']);
+  }
+
   onSubmit() {
     this.patientCardService.addPatientCard(this.patientCard).subscribe((res) => {
     })

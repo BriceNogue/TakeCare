@@ -3,6 +3,14 @@ tr {
     //justify-content: space-around;
 }
 
+.conteiner {
+    padding: 0 7% 0 7%;
+}
+
+.tab-1 {
+    margin-bottom: 7%;
+}
+
 .table-header {
     display: flex;
     justify-content: center;
@@ -43,7 +51,7 @@ td {
 }
 
 .appointment-table {
-    width: 80%;
+    width: 100%;
     border-radius: 5px;
     padding: 16px;
 }
