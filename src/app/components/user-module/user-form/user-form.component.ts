@@ -4,6 +4,7 @@ import { ServiceModel } from 'src/app/models/service-model';
 import { UserModel } from 'src/app/models/user-model';
 import { HServiceService } from 'src/app/services/h-service.service';
 import { UserService } from 'src/app/services/user-service.service';
+import { Location } from '@angular/common';
 //import * as bcrypt from 'bcryptjs';
 
 @Component({
@@ -23,7 +24,8 @@ export class UserFormComponent implements OnInit {
   constructor(
     private router: Router,
     private userService: UserService,
-    private h_service: HServiceService
+    private h_service: HServiceService,
+    private location: Location,
   ) { }
 
   ngOnInit(): void {
@@ -45,6 +47,10 @@ export class UserFormComponent implements OnInit {
       this.userService.updateUser(this.user)
         .subscribe(() => this.router.navigate(['/users', this.user._id]));
     }
+  }
+
+  goBack() {
+    this.location.back();
   }
 
   roles = [

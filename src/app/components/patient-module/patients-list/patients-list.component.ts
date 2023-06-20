@@ -30,7 +30,7 @@ export class PatientsListComponent implements OnInit, AfterViewInit {
   nbr_patiens: Number = 0;
 
   //displayedColumns: string[] = ['First Name', 'Last Name', 'Service'];
-  displayedColumnsPatients: string[] = ['patient_code', 'first_name', 'last_name', 'address', 'age', 'gender', 'assurance', 'phone'];
+  displayedColumnsPatients: string[] = ['patient_code', 'first_name', 'last_name', 'age', 'gender', 'phone'];
   columnsToDisplayWithExpand = [...this.displayedColumnsPatients, 'expand'];
   expandedElement: PatientModel | null;
 

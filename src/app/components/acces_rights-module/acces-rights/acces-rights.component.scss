@@ -1,0 +1,31 @@
+section {
+    width: 100%;
+    padding: 0 7% 0 7%;
+
+    .card {
+        width: 100%;
+
+        .card-body {
+            display: flex;
+            .card-img {
+                width: 50%;
+    
+                img {
+                    width: 100%;
+                }
+            }
+
+            .card-action {
+                width: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+
+                button {
+                    width: 200px;
+                }
+            }
+        }
+    }
+}

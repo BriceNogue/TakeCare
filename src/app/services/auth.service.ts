@@ -9,7 +9,7 @@ import { UserModel } from '../models/user-model';
 })
 export class AuthService {
 
-  API_URL_LOGIN: string = "http://127.0.0.1:9000/api";
+  API_URL_LOGIN: string = "http://localhost:9000/api";
   private readonly TOKEN_NAME = 'take_care_auth';
 
   private _isLoggedIn$ = new BehaviorSubject<boolean>(false);
@@ -18,12 +18,11 @@ export class AuthService {
   user: UserModel;
 
   get token() {
-    return localStorage.getItem(this.TOKEN_NAME);
+    return localStorage.getItem(this.TOKEN_NAME)
   }
 
   constructor(private http: HttpClient) {
     this._isLoggedIn$.next(!!this.token);
-   
   }
 
   private log(response: any) {
@@ -78,6 +77,7 @@ export class AuthService {
     return this.http.post(this.API_URL_LOGIN + "/logout", {}, { withCredentials: true }).pipe(
       tap((res) => {
         this.log(res);
+        this._isLoggedIn$.next(false);
         localStorage.removeItem(this.TOKEN_NAME);
       }),
       catchError((error) => this.handleError(error, null))

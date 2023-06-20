@@ -22,10 +22,10 @@
                                 <mat-label>Password</mat-label>
                                 <input matInput type="password" placeholder="Password" required name="password" id="password"
                                     [type]="hide ? 'password' : 'text'" [(ngModel)]="loginModel.password" #password="ngModel">
-                                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                                <!--<button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                                     [attr.aria-pressed]="hide">
                                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                                </button>
+                                </button>-->
                                 <mat-error [hidden]="password.valid">Enter Password!</mat-error>
                             </mat-form-field>
                         </div>

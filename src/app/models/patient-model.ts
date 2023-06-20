@@ -19,7 +19,6 @@ export class PatientModel {
    public password?: string;
 
     constructor(
-        patient_code: string = "",
         first_name: string = "",
         last_name: string = "",
         address: string = "",
@@ -33,9 +32,7 @@ export class PatientModel {
         marital_status: string = "",
         emergency_number: string = "",
         occupation: string = "",
-        password: string = ""
     ) {
-        this.patient_code = patient_code;
         this.first_name = first_name,
         this.last_name = last_name,
         this.address = address
@@ -49,6 +46,5 @@ export class PatientModel {
         this.marital_status = marital_status;
         this.emergency_number = emergency_number;
         this.occupation = occupation;
-        this.password = password;
     }
 }

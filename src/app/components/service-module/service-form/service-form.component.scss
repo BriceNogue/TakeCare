@@ -1,0 +1,56 @@
+.section {
+    width: 100%;
+    padding-left: 7%;
+}
+
+form {
+    width: 500px;
+}
+
+.card-panel {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 16px;
+    background: #FFF;
+    border-radius: 5px;
+}
+
+.form-header {
+    width: 100%;
+    padding: 5px;
+}
+
+.form-body {
+    width: 100%;
+}
+
+.form-group {
+    width: 100%;
+    padding: 5px;
+}
+
+.user_code_div {
+    width: 100%;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.btn-section {
+    display: flex;
+    border: solid 1px #EEE;
+    width: 100%;
+    padding: 16px;
+    justify-content: space-between;
+    border-radius: 5px;
+}
+
+textarea {
+    min-height: 150px;
+}
+
+.btn {
+    width: 100px;
+}

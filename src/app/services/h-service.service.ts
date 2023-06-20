@@ -8,7 +8,7 @@ import { ServiceModel } from '../models/service-model';
 })
 export class HServiceService {
 
-  API_URL_SERVICE: string = "http://127.0.0.1:9000/api";
+  API_URL_SERVICE: string = "http://localhost:9000/api";
 
   constructor(private http: HttpClient) { }
 
@@ -26,7 +26,7 @@ export class HServiceService {
       headers: new HttpHeaders({ 'Content-type': 'application/json' })
     };
 
-    return this.http.post<ServiceModel>(this.API_URL_SERVICE + "/services", service, httpOptions).pipe(
+    return this.http.post<ServiceModel>(this.API_URL_SERVICE + "/service", service, httpOptions).pipe(
       tap((response) => this.log(response)),
       catchError((error) => this.handleError(error, null))
     )

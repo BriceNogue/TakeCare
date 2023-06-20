@@ -4,7 +4,7 @@
             <mat-icon>arrow_back</mat-icon>
           </button>
     </div>
-    <div class="conten">
-        <app-patient-form></app-patient-form>
+    <div class="conten" *ngIf="patient">
+        <app-patient-form [patient]="patient"></app-patient-form>
     </div>
 </div>

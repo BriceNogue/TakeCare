@@ -1,1 +1,25 @@
-<p>detail-service works!</p>
+<section>
+    <div class="card" *ngIf="serviceModel">
+        <div class="col-12 card-header">
+            <div>
+                <button mat-icon-button color="primary" (click)="goToServices()">
+                    <mat-icon>arrow_back</mat-icon>
+                </button>
+            </div>
+            <div>
+                <h1>About {{ serviceModel.libelle }}</h1>
+            </div>
+        </div>
+        <div class="col-12 card-body">
+            <div class="col-6 card-img">
+                <img src="../../../../assets/imgs/png/AdobeStock_532067829_Preview.png" alt="">
+            </div>
+            <div class="card-about">
+                <p>{{ serviceModel.description }}</p>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button type="button" class="btn btn-primary" (click)="goToEditService(serviceModel)">Edit</button>
+        </div>
+    </div>
+</section>

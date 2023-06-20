@@ -20,7 +20,7 @@
                         <mat-form-field appearance="outline">
                             <mat-label>First Name</mat-label>
                             <input matInput placeholder="First Name" required name="first_name" id="first_name"
-                                pattern="^[a-zA-Z0-9àéèç]{1,25}$" [(ngModel)]="user.first_name" #first_name="ngModel">
+                                pattern="^[a-zA-Z0-9àéèç, ' ']{1,25}$" [(ngModel)]="user.first_name" #first_name="ngModel">
                             <mat-error [hidden]="first_name.valid">Enter First Name!</mat-error>
                         </mat-form-field>
                     </div>
@@ -29,7 +29,7 @@
                         <mat-form-field appearance="outline">
                             <mat-label>Last Name</mat-label>
                             <input matInput placeholder="Last Name" required name="last_name" id="last_name"
-                                pattern="^[a-zA-Z0-9àéèç]{1,25}$" [(ngModel)]="user.last_name" #last_name="ngModel">
+                                pattern="^[a-zA-Z0-9àéèç, ' ']{1,25}$" [(ngModel)]="user.last_name" #last_name="ngModel">
                             <mat-error [hidden]="last_name.valid">Enter Last Name!</mat-error>
                         </mat-form-field>
                     </div>
@@ -38,7 +38,7 @@
                         <mat-form-field appearance="outline">
                             <mat-label>Address</mat-label>
                             <input matInput placeholder="Address" required name="address" id="address"
-                                pattern="^[a-zA-Z0-9àéèç]{1,25}$" [(ngModel)]="user.address" #address="ngModel">
+                                pattern="^[a-zA-Z0-9àéèç, ' ']{1,25}$" [(ngModel)]="user.address" #address="ngModel">
                             <mat-error [hidden]="address.valid">Enter Address!</mat-error>
                         </mat-form-field>
                     </div>
@@ -53,12 +53,9 @@
                     </div>
                     <!-- picture -->
                     <div class="form-group">
-                        <mat-form-field appearance="outline">
-                            <mat-label>Picture</mat-label>
-                            <input matInput placeholder="Picture" required name="picture" id="picture"
-                                pattern="^[a-zA-Z0-9àéèç]{1,25}$" [(ngModel)]="user.picture" #picture="ngModel">
-                            <mat-error [hidden]="picture.valid">Choose Picture!</mat-error>
-                        </mat-form-field>
+                        <label>Picture</label>
+                        <input type="file" placeholder="Picture" name="picture" id="picture"
+                            [(ngModel)]="user.picture" #picture="ngModel">
                     </div>
                     <!-- User Service -->
                     <div class="form-group">
@@ -104,7 +101,7 @@
                     <div class="divider"></div>
                     <div class="btn-section center">
                         <div>
-                            <button type="reset" mat-raised-button color="warn" class="waves-effect waves-light btn">
+                            <button type="reset" mat-raised-button color="warn" (click)="goBack()" class="waves-effect waves-light btn">
                                 Cancel
                             </button>
                         </div>

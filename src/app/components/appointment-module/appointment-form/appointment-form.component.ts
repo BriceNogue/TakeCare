@@ -14,6 +14,7 @@ import { HServiceService } from 'src/app/services/h-service.service';
 import { HoursService } from 'src/app/services/hours.service';
 import { PatientService } from 'src/app/services/patient.service';
 import { UserService } from 'src/app/services/user-service.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-appointment-form',
@@ -31,6 +32,7 @@ export class AppointmentFormComponent implements OnInit, AfterViewInit {
   isAddForm: boolean;
   users: UserModel[];
   hours: HoursModel[];
+  commingUrl: string|null;
   /*selectedService: any = {
     id: 0,
     name: ''
@@ -38,15 +40,19 @@ export class AppointmentFormComponent implements OnInit, AfterViewInit {
 
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
     private userService: UserService,
     private h_service: HServiceService,
     private hoursService: HoursService,
-    private appointmentService: AppointmentService
+    private appointmentService: AppointmentService,
+    private location: Location
   ) { }
 
   ngOnInit(): void {
 
     this.isAddForm = this.router.url.includes('add');
+
+    //this.commingUrl = this.route.snapshot.paramMap.getAll('service')
     this.patient = new PatientModel();
 
     this.showAllService();
@@ -93,8 +99,8 @@ export class AppointmentFormComponent implements OnInit, AfterViewInit {
     }
   }
 
-  goToAppointments() {
-    this.router.navigate(['/appointments'])
+  goBack() {
+    this.location.back()
   }
 
 }

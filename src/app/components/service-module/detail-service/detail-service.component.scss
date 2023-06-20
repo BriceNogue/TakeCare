@@ -1,0 +1,29 @@
+section {
+    padding-left: 7%;
+}
+
+.card {
+    width: 50%;
+
+    .card-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        div {
+            margin-right: 15px;
+        }
+    }
+    
+    .card-body {
+        display: flex;
+    }
+
+    .card-img {
+        width: 50%;
+
+        img {
+            width: 100%;
+        }
+    }
+}

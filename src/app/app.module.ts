@@ -73,6 +73,10 @@ import { AddExaminationComponent } from './components/examination-module/add-exa
 import { ExaminationListComponent } from './components/examination-module/examination-list/examination-list.component';
 import { AddPaymentComponent } from './components/payment-module/add-payment/add-payment.component';
 import { PaymentListComponent } from './components/payment-module/payment-list/payment-list.component';
+import { AccesRightsComponent } from './components/acces_rights-module/acces-rights/acces-rights.component';
+import { AddAccesRightComponent } from './components/acces_rights-module/add-acces-right/add-acces-right.component';
+import { AccesRightFormComponent } from './components/acces_rights-module/acces-right-form/acces-right-form.component';
+import { ManageAccesRightComponent } from './components/acces_rights-module/manage-acces-right/manage-acces-right.component';
 
 @NgModule({
   declarations: [
@@ -118,6 +122,10 @@ import { PaymentListComponent } from './components/payment-module/payment-list/p
     ExaminationListComponent,
     AddPaymentComponent,
     PaymentListComponent,
+    AccesRightsComponent,
+    AddAccesRightComponent,
+    AccesRightFormComponent,
+    ManageAccesRightComponent,
   ],
   imports: [
     BrowserModule,

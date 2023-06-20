@@ -4,8 +4,7 @@ export class ServiceModel {
     libelle: string;
     description: string
 
-    constructor( service_code: string ="", libelle: string ="", description: string ="") {
-        this.service_code = service_code;
+    constructor( libelle: string ="", description: string ="") {
         this.libelle = libelle;
         this.description = description;
     }

@@ -27,11 +27,32 @@ import { DetailUserComponent } from './components/user-module/detail-user/detail
 import { EditUserComponent } from './components/user-module/edit-user/edit-user.component';
 import { UserListComponent } from './components/user-module/user-list/user-list.component';
 import { RoleGuard } from './guards/role.guard';
+import { AddServiceComponent } from './components/service-module/add-service/add-service.component';
+import { AccesRightsComponent } from './components/acces_rights-module/acces-rights/acces-rights.component';
+import { ManageAccesRightComponent } from './components/acces_rights-module/manage-acces-right/manage-acces-right.component';
 
 const routes: Routes = [
   { path: "home", component: HomeComponent },
   {
     path: "dashboard", component: DashboardComponent, canActivate: [AuthGuard, RoleGuard],
+    data: {
+      role: 'Admin',
+    }
+  },
+  {
+    path: "acces_rights", component: AccesRightsComponent, canActivate: [AuthGuard, RoleGuard],
+    data: {
+      role: 'Admin',
+    }
+  },
+  {
+    path: "add/acces_right", component: AddAppointmentComponent, canActivate: [AuthGuard, RoleGuard],
+    data: {
+      role: 'Admin',
+    }
+  },
+  {
+    path: "acces/manage", component: ManageAccesRightComponent, canActivate: [AuthGuard, RoleGuard],
     data: {
       role: 'Admin',
     }
@@ -72,13 +93,22 @@ const routes: Routes = [
   { path: "appointment_details/:id", component: AppointmentDetailsComponent },
 
   { path: "payments", component: PaymentComponent, canActivate: [AuthGuard] },
+
+  {
+    path: "add_service", component: AddServiceComponent, canActivate: [AuthGuard]
+  },
   {
     path: "services", component: ServiceListComponent, canActivate: [AuthGuard, RoleGuard],
     data: {
       role: 'Admin',
     }
   },
-  { path: "services/:id", component: DetailServiceComponent, canActivate: [AuthGuard, RoleGuard] },
+  {
+    path: "services/:id", component: DetailServiceComponent, canActivate: [AuthGuard, RoleGuard],
+    data: {
+      role: 'Admin',
+    }
+  },
   {
     path: "service/:id", component: EditServiceComponent, canActivate: [AuthGuard, RoleGuard],
     data: {

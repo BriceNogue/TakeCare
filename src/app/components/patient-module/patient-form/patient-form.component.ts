@@ -10,7 +10,7 @@ import { PatientService } from 'src/app/services/patient.service';
 })
 export class PatientFormComponent implements OnInit {
 
-  @Input() patient: PatientModel = new PatientModel;
+  @Input() patient: PatientModel;
   isAddForm: boolean;
   title: string = '';
   hide: boolean = true;
@@ -31,10 +31,10 @@ export class PatientFormComponent implements OnInit {
   onSubmit() {
     if(this.isAddForm) {
       this.patientService.addPatient(this.patient)
-      .subscribe((patient: PatientModel) => this.router.navigate(['/patient', patient._id]));
+      .subscribe((patient: PatientModel) => this.router.navigate(['/patients/', patient._id]));
     }else{
       this.patientService.updatePatient(this.patient)
-      .subscribe(() => this.router.navigate(['/patient', this.patient._id]));
+      .subscribe(() => this.router.navigate(['/patients/', this.patient._id]));
     }
   }
 

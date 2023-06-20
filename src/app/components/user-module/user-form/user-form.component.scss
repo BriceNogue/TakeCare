@@ -1,9 +1,10 @@
 .section {
     width: 100%;
+    padding-left: 7%;
 }
 
 form {
-    width: 500px;
+    width: 550px;
 }
 
 .card-panel {
@@ -38,7 +39,7 @@ mat-form-field {
     border: solid 1px #EEE;
     width: 100%;
     padding: 16px;
-    justify-content: space-around;
+    justify-content: space-between;
     border-radius: 5px;
 }
 

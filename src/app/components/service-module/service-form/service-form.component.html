@@ -1,1 +1,51 @@
-<p>service-form works!</p>
+<div class="section">
+    <form *ngIf="serviceModel" (ngSubmit)="onSubmit()" #serviceForm="ngForm">
+        <div class="row">
+            <div class="col">
+                <div class="card-panel mat-elevation-z8">
+                    <div class="form-header">
+                        <h1>{{title}}</h1>
+                    </div>
+                    <div class="form-body">
+                        <!-- Libelle -->
+                        <div class="form-group">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Libelle</mat-label>
+                                <input matInput placeholder="Libelle" required name="libelle" id="libelle"
+                                    pattern="^[a-zA-Z0-9àéèç]{1,25}$" [(ngModel)]="serviceModel.libelle"
+                                    #libelle="ngModel">
+                                <mat-error [hidden]="libelle.valid">Enter Libelle!</mat-error>
+                            </mat-form-field>
+                        </div>
+                        <!-- Description -->
+                        <div class="form-group">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Description</mat-label>
+                                <textarea matInput placeholder="description" required name="description"
+                                    id="description" pattern="^[a-zA-Z0-9àéèç,' ']{1,25}$"
+                                    [(ngModel)]="serviceModel.description" #description="ngModel"></textarea>
+                                <mat-error [hidden]="description.valid">Enter Description!</mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <!-- submit btn -->
+                    <div class="divider"></div>
+                    <div class="btn-section center">
+                        <div>
+                            <button type="reset" mat-raised-button color="warn" class="waves-effect waves-light btn"
+                            (click)="goBack()">
+                                Cancel
+                            </button>
+                        </div>
+                        <div>
+                            <button type="submit" mat-raised-button color="primary" class="waves-effect waves-light btn"
+                                [disabled]="!serviceForm.form.valid">
+                                Save
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

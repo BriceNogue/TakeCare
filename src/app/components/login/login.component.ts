@@ -33,9 +33,11 @@ export class LoginComponent implements OnInit {
     this.auth.login(this.loginModel)
       .subscribe((res) => {
         console.log(res);
-        
-        this.router.navigate(['/home'])
-        
+        this.authService.isLoggedIn$.subscribe(res => {
+          if (res) {
+            this.router.navigate(['/home'])
+          }
+        })
       });
   }
 

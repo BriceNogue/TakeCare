@@ -1,1 +1,10 @@
-<p>detail-patient works!</p>
+<section>
+    <div class="infos" *ngIf="patient">
+        <div class="header">
+            <h3>{{ patient.first_name +" "+patient.last_name }}</h3>
+        </div>
+        <div class="div-img">
+            <img src='{{patient.picture}}' alt="">
+        </div>
+    </div>
+</section>
