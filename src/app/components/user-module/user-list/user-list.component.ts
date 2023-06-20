@@ -6,6 +6,8 @@ import { UserModel } from 'src/app/models/user-model';
 import { MatSort } from '@angular/material/sort';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user-service.service';
+import { ServiceModel } from 'src/app/models/service-model';
+import { HServiceService } from 'src/app/services/h-service.service';
 
 @Component({
   selector: 'app-user-list',
@@ -18,16 +20,25 @@ export class UserListComponent implements AfterViewInit, OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   USERS: UserModel[] = [];
+  services: ServiceModel[] = [];
   users: MatTableDataSource<UserModel>;
   nbr_users: Number = 0;
 
   displayedColumns: string[] = ['user_code', 'first_name', 'last_name', 'address', 'service', 'actions'];
 
-  constructor(private router: Router, private userService: UserService) {
+  constructor(
+    private router: Router, 
+    private userService: UserService,
+    private hService: HServiceService
+    ) {
     this.users = new MatTableDataSource(this.USERS);
   }
 
   ngOnInit() {
+    this,this.hService.getServices().subscribe(services => {
+      this.services = services;
+    });
+
     this.userService.getUsers().subscribe(users => {
       this.users = new MatTableDataSource(users),
       this.users.paginator = this.paginator;
@@ -46,6 +57,18 @@ export class UserListComponent implements AfterViewInit, OnInit {
     if (this.users.paginator) {
       this.users.paginator.firstPage();
     }
+  }
+
+  getUserService(user: UserModel): string {
+    let userService: string = "..";
+    this.services.forEach(service => {
+      if(user.service_id == service._id) {
+        userService = service.libelle;
+      }
+      //return userService;
+    })
+
+    return userService;
   }
 
   goToUserDetail(userId: string) {

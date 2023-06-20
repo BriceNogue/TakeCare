@@ -25,7 +25,9 @@
     padding: 5px;
 }
 
-/*border: 1px solid red;*/
+div {
+    //border: 1px solid red;
+}
 
 .row::after {
     content: "";
@@ -36,13 +38,21 @@
 /******************************************************* First section ******************************************************/
 
 .first-section {
-    padding-top: 10%;
+    padding-top: 2%;
     padding-left: 7%;
     padding-right: 7%;
     color: #171717;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+
+    button {
+        color: white;
+        width: 200px;
+        border-radius: 50px;
+    }
+
+    .btn-div {
+        padding-top: 50%;
+        //border: 1px solid red;
+    }
 }
 
 .fs-1 h6 {
@@ -68,9 +78,7 @@
 }
 
 .fs-3-img {
-    max-width: none;
     width: 500px;
-    margin-top: 5%;
 }
 
 @media screen and (max-width:992px){

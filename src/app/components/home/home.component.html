@@ -1,11 +1,21 @@
 <section class="first-section row">
-    <div class="fs-1 col-1 box">
+    <div class="fs-1 col-12 box">
         <h6> Home</h6>
     </div>
-    <div class="fs-2 col-9 box">
-        <h1> <span>TakeCare </span></h1>
+    <div class="fs-2 col-5 box">
+        <div class="col-12">
+            <h1> <span>TakeCare </span></h1>
+        </div>
+        <div class="btn-div" *ngIf="!isLoggedIn">
+            <div class="col-12">
+                <button type="button" class="btn btn-primary" (click)="goToLogin()" >Login</button>
+            </div>
+            <div class="col-12">
+                <button type="button" class="btn btn-primary">Je Suis Patient</button>
+            </div>
+        </div>
     </div>
-    <div class="fs-3 col-11 box">
+    <div class="fs-3 col-6 box">
         <img src="../../../assets/imgs/svg/undraw_doctor_kw-5-l - Copie.svg" loading="lazy" data-w-id="51979b52-aa6b-212c-fdd4-7344b637023f" alt="" class="fs-3-img expertise">
     </div>
 </section>

@@ -1,1 +1,48 @@
-<p>add-acces-right works!</p>
+<div class="section">
+    <form #formRole="ngForm" (ngSubmit)="onSubmit(user)" class="details mat-elevation-z8" *ngIf="user">
+        <div class="title">
+            <h1>About {{ user.first_name }}</h1>
+        </div>
+        <div>
+            <hr>
+        </div>
+        <div class="detail">
+            <h3><span>User Code: </span> {{ user.user_code }}</h3>
+        </div>
+        <div class="detail">
+            <h3><span>First Name: </span> {{ user.first_name }}</h3>
+        </div>
+        <div class="detail">
+            <h3><span>Last Name: </span> {{ user.last_name }}</h3>
+        </div>
+        <div class="detail">
+            <h3><span>Address: </span> {{ user.address }}</h3>
+        </div>
+        <div class="detail">
+            <h3><span>Service: </span> {{ userServiceName }}</h3>
+        </div>
+        <div class="detail">
+            <h3><span>Role: </span> {{ user.role }}</h3>
+        </div>
+        <div class="form-group">
+            <label for="">Change Role</label>
+            <select name="roles" id="roles" class="form-select" [(ngModel)]="user.role" #name="ngModel">
+                <option *ngFor="let role of roles" [value]="role.libelle">{{ role.libelle }}</option>
+            </select>
+        </div>
+        <div class="detail">
+            <h3><span>Phone Number: </span> {{ user.phone }}</h3>
+        </div>
+        <div>
+            <hr>
+        </div>
+        <div class="btns">
+            <div>
+                <button mat-raised-button color="primary" (click)="goBack()">Back</button>
+            </div>
+            <div>
+                <button type="submit" mat-raised-button class="btn-edit">Save</button>
+            </div>
+        </div>
+    </form>
+</div>

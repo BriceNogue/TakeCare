@@ -45,7 +45,7 @@
         <!-- service -->
         <ng-container matColumnDef="service">
           <th mat-header-cell *matHeaderCellDef> Service </th>
-          <td mat-cell *matCellDef="let user"> {{user.service}} </td>
+          <td mat-cell *matCellDef="let user"> {{ getUserService(user) }} </td>
         </ng-container>
 
         <!-- actions -->

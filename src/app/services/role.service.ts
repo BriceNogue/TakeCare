@@ -21,7 +21,7 @@ export class RoleService {
     return of(errorValue);
   }
 
-  getRoles(): Observable<RoleModel> {
+  getRoles(): Observable<RoleModel[]> {
     return this.http.get<RoleModel[]>(this.API_URL_ROLES + "/roles").pipe(
       tap((response) => this.log(response)),
       catchError((error) => this.handleError(error, []))

@@ -3,6 +3,7 @@ import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } fro
 import { ru } from 'date-fns/locale';
 import { Observable } from 'rxjs';
 import { AuthService } from '../services/auth.service';
+import { Location } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,8 @@ import { AuthService } from '../services/auth.service';
 export class RoleGuard implements CanActivate {
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private location: Location,
   ) {
 
   }
@@ -30,6 +32,7 @@ export class RoleGuard implements CanActivate {
           window.alert('You are not authorized!');
           console.log(this.authService.token);
           //this.authService.getUser()
+          this.location.back()
           return false
         }
       })

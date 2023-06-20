@@ -30,49 +30,50 @@ import { RoleGuard } from './guards/role.guard';
 import { AddServiceComponent } from './components/service-module/add-service/add-service.component';
 import { AccesRightsComponent } from './components/acces_rights-module/acces-rights/acces-rights.component';
 import { ManageAccesRightComponent } from './components/acces_rights-module/manage-acces-right/manage-acces-right.component';
+import { AddAccesRightComponent } from './components/acces_rights-module/add-acces-right/add-acces-right.component';
 
 const routes: Routes = [
   { path: "home", component: HomeComponent },
   {
     path: "dashboard", component: DashboardComponent, canActivate: [AuthGuard, RoleGuard],
     data: {
-      role: 'Admin',
+      role: ['Admin'],
     }
   },
   {
     path: "acces_rights", component: AccesRightsComponent, canActivate: [AuthGuard, RoleGuard],
     data: {
-      role: 'Admin',
+      role: ['Admin'],
     }
   },
   {
-    path: "add/acces_right", component: AddAppointmentComponent, canActivate: [AuthGuard, RoleGuard],
+    path: "add/acces_right/:id", component: AddAccesRightComponent, canActivate: [AuthGuard, RoleGuard],
     data: {
-      role: 'Admin',
+      role: ['Admin'],
     }
   },
   {
     path: "acces/manage", component: ManageAccesRightComponent, canActivate: [AuthGuard, RoleGuard],
     data: {
-      role: 'Admin',
+      role: ['Admin'],
     }
   },
   {
     path: "add_user", component: AddUserComponent, canActivate: [AuthGuard, RoleGuard],
     data: {
-      role: 'Admin',
+      role: ['Admin'],
     }
   },
   {
     path: "users", component: UserListComponent, canActivate: [AuthGuard, RoleGuard],
     data: {
-      role: 'Admin',
+      role: ['Admin'],
     }
   },
   {
     path: "user/:id", component: EditUserComponent, canActivate: [AuthGuard, RoleGuard],
     data: {
-      role: 'Admin',
+      role: ['Admin'],
     }
   },
   { path: "users/:id", component: DetailUserComponent, canActivate: [AuthGuard] },
@@ -92,7 +93,12 @@ const routes: Routes = [
   { path: "edit_appointment/:id", component: EditAppointmentComponent },
   { path: "appointment_details/:id", component: AppointmentDetailsComponent },
 
-  { path: "payments", component: PaymentComponent, canActivate: [AuthGuard] },
+  {
+    path: "payments", component: PaymentComponent, canActivate: [AuthGuard, RoleGuard],
+    data: {
+      role: ['Admin']
+    }
+  },
 
   {
     path: "add_service", component: AddServiceComponent, canActivate: [AuthGuard]
@@ -100,24 +106,24 @@ const routes: Routes = [
   {
     path: "services", component: ServiceListComponent, canActivate: [AuthGuard, RoleGuard],
     data: {
-      role: 'Admin',
+      role: ['Admin'],
     }
   },
   {
     path: "services/:id", component: DetailServiceComponent, canActivate: [AuthGuard, RoleGuard],
     data: {
-      role: 'Admin',
+      role: ['Admin'],
     }
   },
   {
     path: "service/:id", component: EditServiceComponent, canActivate: [AuthGuard, RoleGuard],
     data: {
-      role: 'Admin',
+      role: ['Admin'],
     }
   },
   { path: "login", component: LoginComponent },
 
-  { path: "", redirectTo: "login", pathMatch: "full" },
+  { path: "", redirectTo: "home", pathMatch: "full" },
   { path: "**", component: NotFoundComponent }
 ];
 
