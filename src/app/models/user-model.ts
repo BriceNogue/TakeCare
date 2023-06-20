@@ -16,7 +16,6 @@ export class UserModel {
         last_name: string = '',
         address: string = '',
         service_id: string = '',
-        role: string = '',
         phone: string = '',
         picture: string = '',
         password: string = ''
@@ -26,7 +25,6 @@ export class UserModel {
         this.last_name = last_name;
         this.address = address;
         this.service_id = service_id;
-        this.role = role;
         this.phone = phone;
         this.picture = picture;
         this.password = password;
